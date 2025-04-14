@@ -2,7 +2,12 @@ load("@rules_java//java:defs.bzl", "java_binary", "java_library")
 
 java_library(
     name = "lox",
-    srcs = ["Lox.java"],
+    srcs = [
+        "Lox.java",
+        "Scanner.java",
+        "Token.java",
+        "TokenType.java",
+    ],
     visibility = ["//:__subpackages__"],
 )
 
