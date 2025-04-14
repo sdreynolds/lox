@@ -3,3 +3,4 @@ bazel-lox
 bazel-out
 bazel-testlogs
 MODULE.bazel.lock
+/.java-version
