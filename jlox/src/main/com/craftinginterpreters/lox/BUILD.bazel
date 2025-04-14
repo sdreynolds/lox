@@ -1,0 +1,14 @@
+load("@rules_java//java:defs.bzl", "java_binary", "java_library")
+
+java_library(
+    name = "lox",
+    srcs = ["Lox.java"],
+    visibility = ["//:__subpackages__"],
+)
+
+java_binary(
+    name = "Lox",
+    main_class = "com.craftinginterpreters.lox.Lox",
+    visibility = ["//visibility:public"],
+    runtime_deps = [":lox"],
+)
