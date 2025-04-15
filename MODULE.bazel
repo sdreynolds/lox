@@ -8,11 +8,16 @@ bazel_dep(name = "rules_java", version = "8.11.0")
 maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
 maven.install(
     name = "maven",
+    boms = [
+        "org.junit:junit-bom:5.12.2"
+    ],
     artifacts = [
-        "org.junit.jupiter:junit-jupiter-api:5.8.2",
-        "org.junit.jupiter:junit-jupiter-engine:5.8.2",
-        "org.junit.platform:junit-platform-launcher:1.8.2",
-        "org.junit.platform:junit-platform-reporting:1.8.2",
+        "org.junit.jupiter:junit-jupiter-api",
+        "org.junit.jupiter:junit-jupiter-engine",
+        "org.junit.platform:junit-platform-launcher",
+        "org.junit.platform:junit-platform-reporting",
+        "org.junit.jupiter:junit-jupiter-params",
+        "org.junit.vintage:junit-vintage-engine",
     ],
     fetch_sources = True,
     lock_file = "//:maven_install.json",
