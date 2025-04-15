@@ -19,7 +19,7 @@ public class BasicTokensScanTest {
     @DisplayName("A parameterized test with named argument sets")
     @ParameterizedTest
     @FieldSource("singleTokens")
-    public void yep(char character, TokenType expectedType) {
+    public void validTokens(char character, TokenType expectedType) {
         final Scanner scan = new Scanner(Character.toString(character));
 
         assertIterableEquals(List.of(new Token(expectedType,
@@ -39,4 +39,12 @@ public class BasicTokensScanTest {
         arguments('+', TokenType.PLUS),
         arguments(';', TokenType.SEMICOLON),
         arguments('*', TokenType.STAR));
+
+    @DisplayName("Invalid Token Test")
+    @Test
+    void invalidToken() {
+        final Scanner scan = new Scanner("?");
+        assertIterableEquals(List.of(new Token(TokenType.EOF, "", null, 1)),
+                             scan.scanTokens());
+    }
 }
