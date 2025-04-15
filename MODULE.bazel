@@ -26,5 +26,6 @@ maven.install(
     ],
     fetch_sources = True,
     lock_file = "//:maven_install.json",
+    fail_if_repin_required = True,
 )
 use_repo(maven, "maven")
