@@ -1,1 +1,2 @@
+java_test rule //jlox/src/test/com/craftinginterpreters/lox:AstPrinterTest
 java_test rule //jlox/src/test/com/craftinginterpreters/lox:BasicTokensScanTest

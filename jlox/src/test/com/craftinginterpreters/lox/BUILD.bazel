@@ -21,7 +21,10 @@ checkstyle_test(
 
 java_test_suite(
     name = "lox",
-    srcs = ["BasicTokensScanTest.java"],
+    srcs = [
+        "AstPrinterTest.java",
+        "BasicTokensScanTest.java",
+    ],
     runner = "junit5",
     runtime_deps = [
         "@maven//:org_junit_jupiter_junit_jupiter_engine",
