@@ -60,7 +60,25 @@ public class BasicTokensScanTest {
         arguments("*", TokenType.STAR),
         arguments("/", TokenType.SLASH),
 
-        arguments("     \t\r        (", TokenType.LEFT_PAREN)
+        arguments("     \t\r        (", TokenType.LEFT_PAREN),
+
+        // Keywords
+        arguments("and", TokenType.AND),
+        arguments("class", TokenType.CLASS),
+        arguments("else", TokenType.ELSE),
+        arguments("false", TokenType.FALSE),
+        arguments("for", TokenType.FOR),
+        arguments("fun", TokenType.FUN),
+        arguments("if", TokenType.IF),
+        arguments("nil", TokenType.NIL),
+        arguments("or", TokenType.OR),
+        arguments("print", TokenType.PRINT),
+        arguments("return", TokenType.RETURN),
+        arguments("super", TokenType.SUPER),
+        arguments("this", TokenType.THIS),
+        arguments("true", TokenType.TRUE),
+        arguments("var", TokenType.VAR),
+        arguments("while", TokenType.WHILE)
         );
 
     @DisplayName("Test string literal parsing")
@@ -73,7 +91,7 @@ public class BasicTokensScanTest {
             scan.scanTokens());
     }
 
-    @DisplayName("Tesging number literals")
+    @DisplayName("Testing number literals")
     @ParameterizedTest
     @ValueSource(strings = {"12345", "12.34", "2.356", "1223500606.38"})
     void numberLineTokens(final String line) {
@@ -84,5 +102,35 @@ public class BasicTokensScanTest {
                                  new Token(TokenType.NUMBER, line, expectedValue, 1),
                                  new Token(TokenType.EOF, "", null, 1)),
                              scan.scanTokens());
+    }
+
+    @DisplayName("Parsing identifier orchid")
+    @Test
+    void parseIdentifierOrchid() {
+        final Scanner scan = new Scanner("orchid");
+        assertIterableEquals(List.of(new Token(TokenType.IDENTIFIER, "orchid", null, 1),
+                new Token(TokenType.EOF, "", null, 1)), scan.scanTokens());
+    }
+
+    @DisplayName("Multiline Comment Test")
+    @Test
+    void multilinecomment() {
+        final Scanner scan = new Scanner("/* \n multi line \ncomment*/ 2.3456");
+        assertIterableEquals(List.of(new Token(TokenType.NUMBER, "2.3456", 2.3456d, 3),
+                new Token(TokenType.EOF, "", null, 3)), scan.scanTokens());
+    }
+
+    @DisplayName("Open ended Comment Test")
+    @Test
+    void nonTerminatedComment() {
+        final Scanner scan = new Scanner("/* \n multi line \ncomment 2.3456");
+        assertIterableEquals(List.of(new Token(TokenType.EOF, "", null, 3)), scan.scanTokens());
+    }
+
+    @DisplayName("Open ended Comment Test missing closing slash")
+    @Test
+    void almostTerminatedCommnet() {
+        final Scanner scan = new Scanner("/* \n multi line \ncomment* 2.3456");
+        assertIterableEquals(List.of(new Token(TokenType.EOF, "", null, 3)), scan.scanTokens());
     }
 }

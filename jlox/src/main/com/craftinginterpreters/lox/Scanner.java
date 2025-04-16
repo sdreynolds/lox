@@ -1,7 +1,6 @@
 package com.craftinginterpreters.lox;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +12,25 @@ class Scanner {
     private int start = 0;
     private int current = 0;
     private int line = 1;
+
+    private static final Map<String, TokenType> keywords = Map.ofEntries(
+        Map.entry("and", AND),
+        Map.entry("class", CLASS),
+        Map.entry("else", ELSE),
+        Map.entry("false", FALSE),
+        Map.entry("for", FOR),
+        Map.entry("fun", FUN),
+        Map.entry("if", IF),
+        Map.entry("nil", NIL),
+        Map.entry("or", OR),
+        Map.entry("print", PRINT),
+        Map.entry("return", RETURN),
+        Map.entry("super", SUPER),
+        Map.entry("this", THIS),
+        Map.entry("true", TRUE),
+        Map.entry("var", VAR),
+        Map.entry("while", WHILE)
+        );
 
     Scanner(String source) {
         this.source = source;
@@ -54,6 +72,18 @@ class Scanner {
                 while (peek() != '\n' && !isAtEnd()) {
                     advance();
                 }
+            } else if (match('*')) {
+                while ((peek() != '*' || peekNext() != '/') && !isAtEnd()) {
+                    if (peek() == '\n') {
+                        line++;
+                    }
+                    advance();
+                }
+
+                if (!isAtEnd()) {
+                    advance();
+                    advance();
+                }
             } else {
                 addToken(SLASH);
             }
@@ -72,6 +102,8 @@ class Scanner {
         default:
             if (isDigit(c)) {
                 number();
+            } else if (isAlpha(c)) {
+                identifier();
             } else {
                 Lox.error(line, "Unexpected character.");
             }
@@ -79,8 +111,27 @@ class Scanner {
         }
     }
 
+    private boolean isAlpha(char c) {
+        return (c >= 'a' && c <= 'z') ||
+            (c >= 'A' && c <= 'Z') ||
+            (c == '_');
+    }
+
+    private boolean isAlphaNumeric(char c) {
+        return isAlpha(c) || isDigit(c);
+    }
+
     private boolean isDigit(char c) {
         return c >= '0' && c <= '9';
+    }
+
+    private void identifier() {
+        while (isAlphaNumeric(peek())) {
+            advance();
+        }
+
+        final String text = source.substring(start, current);
+        addToken(keywords.getOrDefault(text, IDENTIFIER));
     }
 
     private void number() {
