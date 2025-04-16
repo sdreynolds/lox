@@ -78,7 +78,7 @@ public class BasicTokensScanTest {
     @ValueSource(strings = {"12345", "12.34", "2.356", "1223500606.38"})
     void numberLineTokens(final String line) {
         final Scanner scan = new Scanner(line);
-        double expectedValue = Double.valueOf(line);
+        double expectedValue = Double.parseDouble(line);
 
         assertIterableEquals(List.of(
                                  new Token(TokenType.NUMBER, line, expectedValue, 1),
