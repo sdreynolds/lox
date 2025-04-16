@@ -13,3 +13,8 @@ gazelle(
     name = "gazelle",
     gazelle = ":gazelle_binary",
 )
+
+alias(
+    name = "jlox",
+    actual = "//jlox/src/main/com/craftinginterpreters/lox:Lox",
+)
