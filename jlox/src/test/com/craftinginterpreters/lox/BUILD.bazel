@@ -16,7 +16,10 @@ diff_test(
 
 checkstyle_test(
     name = "lox_test_checkstyle",
-    srcs = ["BasicTokensScanTest.java"],
+    srcs = [
+        "AstPrinterTest.java",
+        "BasicTokensScanTest.java",
+    ],
 )
 
 java_test_suite(
