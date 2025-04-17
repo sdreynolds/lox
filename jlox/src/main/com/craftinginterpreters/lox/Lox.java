@@ -55,6 +55,13 @@ public class Lox {
         report(line, "", message);
     }
 
+    static void error(final Token token, final String message) {
+        switch(token) {
+        case Token(var eofToken, var _lexeme, var _literal, var eofLine) when eofToken == TokenType.EOF -> report(eofLine, " at end", message);
+        case Token(var type, var lexeme, var _literal, var line) -> report(line, " at '" + lexeme + "'", message);
+        }
+    }
+
     private static void report(int line, String where,
                                String message) {
         System.err.println(

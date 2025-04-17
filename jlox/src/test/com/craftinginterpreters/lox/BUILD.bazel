@@ -26,6 +26,7 @@ java_test_suite(
     name = "lox",
     srcs = [
         "AstPrinterTest.java",
+        "BasicParserTest.java",
         "BasicTokensScanTest.java",
     ],
     runner = "junit5",
