@@ -42,13 +42,12 @@ public class Lox {
         }
     }
     private static void run(String source) {
-        Scanner scanner = new Scanner(source);
-        List<Token> tokens = scanner.scanTokens();
+        final var scanner = new Scanner(source);
+        final var tokens = scanner.scanTokens();
 
-        // For now, just print the tokens.
-        for (Token token : tokens) {
-            System.out.println(token);
-        }
+        final var parser = new Parser(tokens);
+
+        System.out.println(AstPrinter.print(parser.parse()));
     }
 
     static void error(int line, String message) {

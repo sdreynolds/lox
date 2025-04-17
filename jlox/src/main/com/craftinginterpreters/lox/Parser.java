@@ -88,7 +88,8 @@ class Parser {
 
         if (match(NUMBER, STRING)) {
             final var literalExpr = switch(previous()) {
-            case Token(var previousType, var _lexeme, var literal, var line) -> new LiteralExpr(literal);
+            case Token(var previousType, var _lexeme, var literal, var _line) when previousType == NUMBER -> new LiteralExpr(literal);
+            case Token(var _stringType, var _lexeme, var stringLiteral, var _line) -> new LiteralExpr("'" + stringLiteral.toString() + "'");
             };
             return literalExpr;
         }
