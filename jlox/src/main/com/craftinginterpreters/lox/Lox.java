@@ -46,8 +46,12 @@ public class Lox {
         final var tokens = scanner.scanTokens();
 
         final var parser = new Parser(tokens);
+        final var expr = parser.parse();
 
-        System.out.println(AstPrinter.print(parser.parse()));
+        if (hadError) {
+            return;
+        }
+        System.out.println(AstPrinter.print(expr));
     }
 
     static void error(int line, String message) {

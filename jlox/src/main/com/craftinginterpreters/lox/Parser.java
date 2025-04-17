@@ -1,6 +1,7 @@
 package com.craftinginterpreters.lox;
 
 import java.util.List;
+import java.util.Set;
 
 import static com.craftinginterpreters.lox.TokenType.*;
 
@@ -15,7 +16,11 @@ class Parser {
     }
 
     Expr parse() {
-        return expression();
+        try {
+            return expression();
+        } catch (ParseError error) {
+            return null;
+        }
     }
 
     private Expr expression () {
@@ -99,7 +104,7 @@ class Parser {
             consume(RIGHT_PAREN, "Expect ')' after expression.");
             return new GroupingExpr(expr);
         }
-        throw error(peek(), "Unknown Token");
+        throw error(peek(), "Expect expression.");
     }
 
     private Token consume(final TokenType target, final String errorMessage) {
@@ -112,6 +117,29 @@ class Parser {
     private ParseError error(final Token token, final String errorMessage) {
         Lox.error(token, errorMessage);
         return new ParseError();
+    }
+
+    private void synchronize() {
+        advance();
+        final var boundaryTypes = Set.of(
+            CLASS, FOR, FUN, IF, PRINT, RETURN, VAR, WHILE
+        );
+        while (!isAtEnd()) {
+            if (check(SEMICOLON)) {
+                return;
+            }
+
+            final boolean canExit = switch(peek()) {
+            case Token(var type, var _lexeme, var _literal, var _line) when boundaryTypes.contains(type) -> true;
+            default -> false;
+            };
+
+            if (canExit) {
+                return;
+            } else {
+                advance();
+            }
+        }
     }
 
     private boolean match(TokenType... types) {
