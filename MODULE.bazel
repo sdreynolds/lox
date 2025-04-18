@@ -23,6 +23,8 @@ maven.install(
         "org.junit.platform:junit-platform-reporting",
         "org.junit.jupiter:junit-jupiter-params",
         "org.junit.vintage:junit-vintage-engine",
+
+        "org.hamcrest:hamcrest:jar:3.0",
     ],
     fetch_sources = True,
     lock_file = "//:maven_install.json",
