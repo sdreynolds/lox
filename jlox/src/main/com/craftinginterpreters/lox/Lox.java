@@ -52,6 +52,7 @@ public class Lox {
             return;
         }
         System.out.println(AstPrinter.print(expr));
+        System.out.println(Interpreter.interpret(expr).toString());
     }
 
     static void error(int line, String message) {

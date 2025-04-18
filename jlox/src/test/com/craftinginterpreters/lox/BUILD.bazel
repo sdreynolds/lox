@@ -19,6 +19,7 @@ checkstyle_test(
     srcs = [
         "AstPrinterTest.java",
         "BasicTokensScanTest.java",
+        "InterpreterTest.java",
     ],
 )
 
@@ -28,6 +29,7 @@ java_test_suite(
         "AstPrinterTest.java",
         "BasicParserTest.java",
         "BasicTokensScanTest.java",
+        "InterpreterTest.java",
     ],
     runner = "junit5",
     runtime_deps = [
