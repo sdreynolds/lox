@@ -19,10 +19,37 @@ class Parser {
     List<Stmt> parse() {
         final List<Stmt> statements = new ArrayList<>();
         while (!isAtEnd()) {
-            // TODO: try catch and sync?
-            statements.add(statement());
+            // TODO: check for null and don't add to statement?
+            statements.add(declaration());
         }
         return statements;
+    }
+
+    private Stmt declaration() {
+        try {
+            if (match(VAR)) {
+                return varDeclaration();
+            } else {
+                return statement();
+            }
+        } catch (ParseError error) {
+            synchronize();
+            return null;
+        }
+    }
+
+    private Stmt varDeclaration() {
+        final var name = consume(IDENTIFIER, "Expect variable name.");
+
+        final Expr initializer;
+        if (match(EQUAL)) {
+            initializer = expression();
+        } else {
+            initializer = null;
+        }
+
+        consume(SEMICOLON, "Expect ';' after variable declaration.");
+        return new VarStmt(name, initializer);
     }
 
     private Stmt statement() {
@@ -125,6 +152,10 @@ class Parser {
             final var expr = expression();
             consume(RIGHT_PAREN, "Expect ')' after expression.");
             return new GroupingExpr(expr);
+        }
+
+        if (match(IDENTIFIER)) {
+            return new VariableExpr(previous());
         }
         throw error(peek(), "Expect expression.");
     }

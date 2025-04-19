@@ -14,7 +14,7 @@ class InterpreterTest {
         final var math = new BinaryExpr(new LiteralExpr(2.0),
                                         new Token(TokenType.PLUS, "+", null, 1),
                                         new LiteralExpr(4.0));
-        assertEquals(6.0, Interpreter.evaluate(math));
+        assertEquals(6.0, new Interpreter().evaluate(math));
     }
 
     @DisplayName("Assert Minus works")
@@ -23,7 +23,7 @@ class InterpreterTest {
         final var math = new BinaryExpr(new LiteralExpr(2.0),
                                         new Token(TokenType.MINUS, "-", null, 1),
                                         new LiteralExpr(4.0));
-        assertEquals(-2.0, Interpreter.evaluate(math));
+        assertEquals(-2.0, new Interpreter().evaluate(math));
     }
 
     @DisplayName("Assert Divison Works")
@@ -32,7 +32,7 @@ class InterpreterTest {
         final var math = new BinaryExpr(new LiteralExpr(2.0),
                                         new Token(TokenType.SLASH, "/", null, 1),
                                         new LiteralExpr(4.0));
-        assertEquals(0.5, Interpreter.evaluate(math));
+        assertEquals(0.5, new Interpreter().evaluate(math));
     }
 
     @DisplayName("Assert Multiplication Works")
@@ -41,7 +41,7 @@ class InterpreterTest {
         final var math = new BinaryExpr(new LiteralExpr(2.0),
                                         new Token(TokenType.STAR, "*", null, 1),
                                         new LiteralExpr(4.0));
-        assertEquals(8.0, Interpreter.evaluate(math));
+        assertEquals(8.0, new Interpreter().evaluate(math));
     }
 
     @DisplayName("Concat String together")
@@ -54,7 +54,7 @@ class InterpreterTest {
                                              new Token(TokenType.PLUS, "+", null, 1),
                                              new LiteralExpr("sauce")
             );
-        assertEquals("awesome sauce", Interpreter.evaluate(strConcat));
+        assertEquals("awesome sauce", new Interpreter().evaluate(strConcat));
     }
 
     @DisplayName("Greater Than")
@@ -64,7 +64,7 @@ class InterpreterTest {
             new LiteralExpr(14.3),
             new Token(TokenType.GREATER, ">", null, 1),
             new LiteralExpr(7.0));
-        assertEquals(true, Interpreter.evaluate(compare));
+        assertEquals(true, new Interpreter().evaluate(compare));
     }
 
     @DisplayName("Less Than")
@@ -74,7 +74,7 @@ class InterpreterTest {
             new LiteralExpr(14.3),
             new Token(TokenType.LESS, "<", null, 1),
             new LiteralExpr(7.0));
-        assertEquals(false, Interpreter.evaluate(compare));
+        assertEquals(false, new Interpreter().evaluate(compare));
     }
 
     @DisplayName("Less Than or Equal")
@@ -84,7 +84,7 @@ class InterpreterTest {
             new LiteralExpr(14.3),
             new Token(TokenType.LESS_EQUAL, "<=", null, 1),
             new LiteralExpr(7.0));
-        assertEquals(false, Interpreter.evaluate(compare));
+        assertEquals(false, new Interpreter().evaluate(compare));
     }
 
     @DisplayName("Greater Than or Equal")
@@ -94,7 +94,7 @@ class InterpreterTest {
             new LiteralExpr(14.3),
             new Token(TokenType.GREATER_EQUAL, ">=", null, 1),
             new LiteralExpr(7.0));
-        assertEquals(true, Interpreter.evaluate(compare));
+        assertEquals(true, new Interpreter().evaluate(compare));
     }
 
     @DisplayName("String is equal")
@@ -107,7 +107,7 @@ class InterpreterTest {
                 new LiteralExpr("yes")),
             new Token(TokenType.EQUAL_EQUAL, "==", null, 1),
             new LiteralExpr("awesome yes"));
-        assertEquals(true, Interpreter.evaluate(compare));
+        assertEquals(true, new Interpreter().evaluate(compare));
     }
 
     @DisplayName("String is not equal")
@@ -120,6 +120,6 @@ class InterpreterTest {
                 new LiteralExpr("yes")),
             new Token(TokenType.BANG_EQUAL, "==", null, 1),
             new LiteralExpr("Different"));
-        assertEquals(true, Interpreter.evaluate(compare));
+        assertEquals(true, new Interpreter().evaluate(compare));
     }
 }

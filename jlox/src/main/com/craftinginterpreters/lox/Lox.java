@@ -23,8 +23,10 @@ public class Lox {
         }
     }
     private static void runFile(String path) throws IOException {
+        final var interpreter = new Interpreter();
+
         byte[] bytes = Files.readAllBytes(Paths.get(path));
-        run(new String(bytes, Charset.defaultCharset()));
+        run(new String(bytes, Charset.defaultCharset()), interpreter);
 
         if (hadError) {
             System.exit(65);
@@ -36,16 +38,17 @@ public class Lox {
     private static void runPrompt() throws IOException {
         InputStreamReader input = new InputStreamReader(System.in);
         BufferedReader reader = new BufferedReader(input);
+        final var interpreter = new Interpreter();
 
         for (;;) {
             System.out.print("> ");
             String line = reader.readLine();
             if (line == null) break;
-            run(line);
+            run(line, interpreter);
             hadError = false;
         }
     }
-    private static void run(String source) {
+    private static void run(String source, final Interpreter interpreter) {
         final var scanner = new Scanner(source);
         final var tokens = scanner.scanTokens();
 
@@ -56,7 +59,7 @@ public class Lox {
             return;
         }
 
-        Interpreter.interpret(stmts);
+        interpreter.interpret(stmts);
     }
 
     static void error(int line, String message) {

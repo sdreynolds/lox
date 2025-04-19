@@ -3,7 +3,9 @@ package com.craftinginterpreters.lox;
 import java.util.List;
 
 class Interpreter {
-    static void interpret(final List<Stmt> statements ) {
+    private Environment environment = new Environment();
+
+    void interpret(final List<Stmt> statements ) {
         try {
             for (var statement: statements) {
                 execute(statement);
@@ -13,37 +15,24 @@ class Interpreter {
         }
     }
 
-    static void execute(final Stmt statement) {
+    void execute(final Stmt statement) {
         switch(statement) {
-        case ExpressionStmt(var basicExpr) -> Interpreter.evaluate(basicExpr);
+        case ExpressionStmt(var basicExpr) -> evaluate(basicExpr);
         case PrintStmt(var stmtToPrint) -> {
-            final var value = Interpreter.evaluate(stmtToPrint);
+            final var value = evaluate(stmtToPrint);
             System.out.println(stringify(value));
         }
+        case VarStmt(Token(var _type, var varName, var _literal, var _line), var varInit) when varInit != null -> environment.define(varName, evaluate(varInit));
+        case VarStmt(Token(var _type, var nilName, var _literal, var _line), var _nil) -> environment.define(nilName, null);
         };
     }
 
-    static private String stringify(Object object) {
-        if (object == null) {
-            return "nil";
-        }
-        else if (object instanceof Double) {
-            final var text = object.toString();
-            if (text.endsWith(".0")) {
-                return text.substring(0, text.length() - 2);
-            }
-            return text;
-        } else {
-            return object.toString();
-        }
-    }
-
-    static Object evaluate(final Expr expr) {
+    Object evaluate(final Expr expr) {
         return switch(expr) {
         case LiteralExpr(var value) -> value;
-        case GroupingExpr(var expressions) -> Interpreter.evaluate(expressions);
+        case GroupingExpr(var expressions) -> evaluate(expressions);
         case UnaryExpr(Token unaryOperator, var unaryExpr) -> {
-            final var right = Interpreter.evaluate(unaryExpr);
+            final var right = evaluate(unaryExpr);
 
             yield switch(unaryOperator.type()) {
             case TokenType.MINUS -> {
@@ -57,8 +46,8 @@ class Interpreter {
             };
         }
         case BinaryExpr(var leftExpr, var operator, var rightExpr) -> {
-            final var left = Interpreter.evaluate(leftExpr);
-            final var right = Interpreter.evaluate(rightExpr);
+            final var left = evaluate(leftExpr);
+            final var right = evaluate(rightExpr);
 
             yield switch(operator.type()) {
             case TokenType.MINUS -> {
@@ -108,6 +97,7 @@ class Interpreter {
             default -> null;
             };
         }
+        case VariableExpr(var nameToken) -> environment.get(nameToken);
 
         };
     }
@@ -129,6 +119,21 @@ class Interpreter {
             return (boolean) object;
         } else {
             return true;
+        }
+    }
+
+    static private String stringify(Object object) {
+        if (object == null) {
+            return "nil";
+        }
+        else if (object instanceof Double) {
+            final var text = object.toString();
+            if (text.endsWith(".0")) {
+                return text.substring(0, text.length() - 2);
+            }
+            return text;
+        } else {
+            return object.toString();
         }
     }
 

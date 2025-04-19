@@ -17,7 +17,6 @@ diff_test(
 checkstyle_test(
     name = "lox_test_checkstyle",
     srcs = [
-        "AstPrinterTest.java",
         "BasicTokensScanTest.java",
         "InterpreterTest.java",
     ],
@@ -28,8 +27,6 @@ checkstyle_test(
 java_test_suite(
     name = "lox",
     srcs = [
-        "AstPrinterTest.java",
-        "BasicParserTest.java",
         "BasicTokensScanTest.java",
         "InterpreterTest.java",
         "PrintStmtTest.java",

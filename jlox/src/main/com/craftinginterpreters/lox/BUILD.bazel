@@ -4,7 +4,7 @@ load("@rules_java//java:defs.bzl", "java_binary", "java_library")
 java_library(
     name = "lox",
     srcs = [
-        "AstPrinter.java",
+        "Environment.java",
         "Expr.java",
         "Interpreter.java",
         "Lox.java",
