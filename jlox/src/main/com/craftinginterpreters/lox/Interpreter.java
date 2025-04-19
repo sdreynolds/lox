@@ -22,8 +22,11 @@ class Interpreter {
             final var value = evaluate(stmtToPrint);
             System.out.println(stringify(value));
         }
-        case VarStmt(Token(var _type, var varName, var _literal, var _line), var varInit) when varInit != null -> environment.define(varName, evaluate(varInit));
-        case VarStmt(Token(var _type, var nilName, var _literal, var _line), var _nil) -> environment.define(nilName, null);
+        case VarStmt(Token(var _type, var varName, var _literal, var _line), var varInit) when varInit != null ->
+            environment.define(varName, evaluate(varInit));
+        case VarStmt(Token(var _type, var nilName, var _literal, var _line), var _nil) ->
+            environment.define(nilName, null);
+
         };
     }
 
@@ -98,6 +101,13 @@ class Interpreter {
             };
         }
         case VariableExpr(var nameToken) -> environment.get(nameToken);
+
+        case AssignExpr(var assignName, var value) -> {
+            final var evaluation = evaluate(value);
+            environment.assign(assignName, evaluation);
+            // Return the value
+            yield evaluation;
+        }
 
         };
     }

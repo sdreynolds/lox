@@ -7,6 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
+import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOutNormalized;
+import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemErrNormalized;
+
 class InterpreterTest {
     @DisplayName("Simple math")
     @Test
@@ -121,5 +124,33 @@ class InterpreterTest {
             new Token(TokenType.BANG_EQUAL, "==", null, 1),
             new LiteralExpr("Different"));
         assertEquals(true, new Interpreter().evaluate(compare));
+    }
+
+    @DisplayName("Undeclared Assignment")
+    @Test
+    void undeclaredAssignment() throws Exception {
+        final var program = List.<Stmt>of(
+            new PrintStmt(new AssignExpr(
+                              new Token(TokenType.IDENTIFIER, "a", null, 1),
+                              new LiteralExpr("reassigned")))
+            );
+
+        final var output = tapSystemErrNormalized(() -> new Interpreter().interpret(program));
+        assertEquals("Undefined variable 'a'.\n[line 1]\n", output);
+    }
+
+    @DisplayName("Reassignment")
+    @Test
+    void reassignment() throws Exception {
+        final var program = List.<Stmt>of(
+            new VarStmt(new Token(TokenType.IDENTIFIER, "a", null, 1),
+                        new LiteralExpr("before")),
+            new PrintStmt(new AssignExpr(
+                              new Token(TokenType.IDENTIFIER, "a", null, 1),
+                              new LiteralExpr("reassigned")))
+        );
+
+        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        assertEquals("reassigned\n", output);
     }
 }

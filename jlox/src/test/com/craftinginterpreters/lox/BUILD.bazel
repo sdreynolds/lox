@@ -29,6 +29,7 @@ java_test_suite(
     srcs = [
         "BasicTokensScanTest.java",
         "InterpreterTest.java",
+        "ParseErrorsTest.java",
         "PrintStmtTest.java",
         "RuntimeErrorsTest.java",
     ],

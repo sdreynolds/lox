@@ -11,3 +11,5 @@ record LiteralExpr(Object value) implements Expr {}
 record UnaryExpr(Token operator, Expr right) implements Expr {}
 
 record VariableExpr(Token name) implements Expr {}
+
+record AssignExpr(Token name, Expr value) implements Expr {}

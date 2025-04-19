@@ -73,7 +73,27 @@ class Parser {
     }
 
     private Expr expression () {
-        return equality();
+        return assignment();
+    }
+
+    private Expr assignment() {
+        final var expr = equality();
+
+        if (match(EQUAL)) {
+            final var equals = previous();
+            final var value = assignment();
+
+            return switch(expr) {
+            case VariableExpr(var name) -> new AssignExpr(name, value);
+            default -> {
+                // Report an error but return the r-value
+                error(equals, "Invalid assignment target.");
+                yield expr;
+            }
+            };
+        } else {
+            return expr;
+        }
     }
 
     private Expr equality() {
