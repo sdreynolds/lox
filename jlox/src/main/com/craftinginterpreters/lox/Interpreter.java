@@ -129,6 +129,21 @@ class Interpreter {
             yield evaluation;
         }
 
+        case LogicalExpr(var leftLogical, var logicalOperator, var rightLogical) -> {
+            final var left = evaluate(leftLogical);
+
+            if (logicalOperator.type() == TokenType.OR) {
+                if (isTruthy(left)) {
+                    yield left;
+                }
+            } else {
+                if (!isTruthy(left)) {
+                    yield left;
+                }
+            }
+            yield evaluate(rightLogical);
+        }
+
         };
     }
 

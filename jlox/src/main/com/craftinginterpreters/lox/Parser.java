@@ -107,7 +107,7 @@ class Parser {
     }
 
     private Expr assignment() {
-        final var expr = equality();
+        final var expr = or();
 
         if (match(EQUAL)) {
             final var equals = previous();
@@ -124,6 +124,29 @@ class Parser {
         } else {
             return expr;
         }
+    }
+
+    private Expr or() {
+        var expr = and();
+
+        while (match(OR)) {
+            final var operator = previous();
+            final var right = and();
+            expr = new LogicalExpr(expr, operator, right);
+        }
+        return expr;
+    }
+
+    private Expr and() {
+        var expr = equality();
+
+        while (match(AND)) {
+            final var operator = previous();
+            final var right = equality();
+            expr = new LogicalExpr(expr, operator, right);
+        }
+
+        return expr;
     }
 
     private Expr equality() {

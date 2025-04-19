@@ -64,4 +64,37 @@ class ConditionalTest {
         final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(List.of(stmt)));
         assertEquals("", output);
     }
+
+    @DisplayName("Logical OR conditioning with truthy first case")
+    @Test
+    void truthyFirstCase() throws Exception {
+        final var program = new Parser(
+            new Scanner("print \"hi\" or 2;")
+            .scanTokens())
+            .parse();
+        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        assertEquals("hi\n", output);
+    }
+
+    @DisplayName("Logical OR conditioning with truthy second case")
+    @Test
+    void truthySecondCase() throws Exception {
+        final var program = new Parser(
+            new Scanner("var a; print a or nil or 2;")
+            .scanTokens())
+            .parse();
+        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        assertEquals("2\n", output);
+    }
+
+    @DisplayName("Multiple AND conditionals")
+    @Test
+    void multipleAnd() throws Exception {
+        final var program = new Parser(
+            new Scanner("var a = \"awesome\"; if (a and true and \"yo\" and \"sup\") print a;")
+            .scanTokens())
+            .parse();
+        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        assertEquals("awesome\n", output);
+    }
 }
