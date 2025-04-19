@@ -60,9 +60,21 @@ class Parser {
             return new BlockStmt(block());
         } else if (match(IF)) {
             return ifStatement();
+        } else if (match(WHILE)) {
+            return whileStatement();
         } else {
             return expressionStatement();
         }
+    }
+
+    private Stmt whileStatement() {
+        // var a = 0; while (a < 2) {print a; a = a + 1;}
+        consume(LEFT_PAREN, "Expect '(' after 'while'.");
+        final var condition = expression();
+        consume(RIGHT_PAREN, "Expect ')' after while condition.");
+
+        final var body = statement();
+        return new WhileStmt(condition, body);
     }
 
     private Stmt ifStatement() {

@@ -97,4 +97,15 @@ class ConditionalTest {
         final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
         assertEquals("awesome\n", output);
     }
+
+    @DisplayName("Counter printer")
+    @Test
+    void counterPrint() throws Exception {
+        final var program = new Parser(
+            new Scanner("var a = 0; while (a < 2) {print a; a = a + 1;}")
+            .scanTokens())
+            .parse();
+        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        assertEquals("0\n1\n", output);
+    }
 }

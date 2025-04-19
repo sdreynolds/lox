@@ -37,6 +37,12 @@ class Interpreter {
             }
         }
 
+        case WhileStmt(var whileCondition, var whileBody) -> {
+            while(isTruthy(evaluate(whileCondition))) {
+                execute(whileBody);
+            }
+        }
+
         };
     }
 
