@@ -14,7 +14,7 @@ class ConditionalTest {
     @Test
     void parseIfStmt() {
         final var program = new Parser(
-            new Scanner("if (23 > (12 + 10)) print \"success\";")
+            new Scanner("if (23 > (-12 + 10)) print \"success\";")
             .scanTokens())
           .parse();
         assertEquals(
@@ -23,7 +23,7 @@ class ConditionalTest {
                                new Token(TokenType.GREATER, ">", null, 1),
                                new GroupingExpr(
                                    new BinaryExpr(
-                                       new LiteralExpr(12.0),
+                                       new UnaryExpr(new Token(TokenType.MINUS, "-", null, 1), new LiteralExpr(12.0)),
                                        new Token(TokenType.PLUS, "+", null, 1),
                                        new LiteralExpr(10.0)))
                                ),
