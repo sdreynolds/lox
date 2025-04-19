@@ -29,6 +29,14 @@ class Interpreter {
 
         case BlockStmt(var statements) -> executeBlock(statements, new Environment(environment));
 
+        case IfStmt(var condition, var thenBranch, var elseBranch) -> {
+            if (Interpreter.isTruthy(evaluate(condition))) {
+                execute(thenBranch);
+            } else {
+                elseBranch.ifPresent(stmt -> execute(stmt));
+            }
+        }
+
         };
     }
 

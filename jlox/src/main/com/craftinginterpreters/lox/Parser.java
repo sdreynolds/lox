@@ -2,6 +2,7 @@ package com.craftinginterpreters.lox;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import static com.craftinginterpreters.lox.TokenType.*;
@@ -57,9 +58,27 @@ class Parser {
             return printStatement();
         } else if (match(LEFT_BRACE)) {
             return new BlockStmt(block());
+        } else if (match(IF)) {
+            return ifStatement();
         } else {
             return expressionStatement();
         }
+    }
+
+    private Stmt ifStatement() {
+        // if (a == true) {} else {}
+        consume(LEFT_PAREN, "Expect '(' after 'if'.");
+        final var condition = expression();
+        consume (RIGHT_PAREN, "Expect ')' after if condition.");
+
+        final var thenBranch = statement();
+        final Optional<Stmt> elseStmt;
+        if (match(ELSE)) {
+            elseStmt = Optional.ofNullable(statement());
+        } else {
+            elseStmt = Optional.empty();
+        }
+        return new IfStmt(condition, thenBranch, elseStmt);
     }
 
     private List<Stmt> block() {

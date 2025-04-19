@@ -1,5 +1,6 @@
 java_test rule //jlox/src/test/com/craftinginterpreters/lox:BasicTokensScanTest
 java_test rule //jlox/src/test/com/craftinginterpreters/lox:BlockEndToEndTest
+java_test rule //jlox/src/test/com/craftinginterpreters/lox:ConditionalTest
 java_test rule //jlox/src/test/com/craftinginterpreters/lox:InterpreterTest
 java_test rule //jlox/src/test/com/craftinginterpreters/lox:ParseErrorsTest
 java_test rule //jlox/src/test/com/craftinginterpreters/lox:PrintStmtTest
