@@ -18,7 +18,12 @@ checkstyle_test(
     name = "lox_test_checkstyle",
     srcs = [
         "BasicTokensScanTest.java",
+        "BlockEndToEndTest.java",
+        "ConditionalTest.java",
         "InterpreterTest.java",
+        "ParseErrorsTest.java",
+        "PrintStmtTest.java",
+        "RuntimeErrorsTest.java",
     ],
 )
 

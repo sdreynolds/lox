@@ -108,4 +108,37 @@ class ConditionalTest {
         final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
         assertEquals("0\n1\n", output);
     }
+
+    @DisplayName("Counter printer with For Loop")
+    @Test
+    void forLoopCounterPrinter() throws Exception {
+        final var program = new Parser(
+            new Scanner("for (var i = 0; i < 2; i = i + 1) print i;")
+            .scanTokens())
+            .parse();
+        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        assertEquals("0\n1\n", output);
+    }
+
+    @DisplayName("Counter printer with For Loop without initializer")
+    @Test
+    void forLoopCounterPrinterNoInit() throws Exception {
+        final var program = new Parser(
+            new Scanner("var i = 0; for (; i < 2; i = i + 1) print i;")
+            .scanTokens())
+            .parse();
+        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        assertEquals("0\n1\n", output);
+    }
+
+    @DisplayName("Counter printer with For Loop without increment")
+    @Test
+    void forLoopCounterPrinterNoIncr() throws Exception {
+        final var program = new Parser(
+            new Scanner("var i; for (i = 0; i < 2; ) {print i; i = i + 1;}")
+            .scanTokens())
+            .parse();
+        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        assertEquals("0\n1\n", output);
+    }
 }

@@ -62,9 +62,56 @@ class Parser {
             return ifStatement();
         } else if (match(WHILE)) {
             return whileStatement();
+        } else if (match(FOR)) {
+            return forStatement();
         } else {
             return expressionStatement();
         }
+    }
+
+    private Stmt forStatement() {
+        // for (var i = 0; i < 10; i = i + 1) print i;
+        consume(LEFT_PAREN, "Expect '(' after 'for'.");
+
+        final Stmt initializer;
+        if (match(SEMICOLON)) {
+            initializer = null;
+        } else if (match(VAR)) {
+            initializer = varDeclaration();
+        } else {
+            initializer = expressionStatement();
+        }
+
+        final Expr condition;
+        if (!check(SEMICOLON)) {
+            condition = expression();
+        } else {
+            condition = new LiteralExpr(true);
+        }
+        consume(SEMICOLON, "Expect ';' after loop condition.");
+
+        final Expr increment;
+        if (!check(RIGHT_PAREN)) {
+            increment = expression();
+        } else {
+            increment = null;
+        }
+        consume(RIGHT_PAREN, "Expect ')' after for clauses.");
+
+        Stmt body;
+
+        if (increment != null) {
+            body = new BlockStmt(List.of(statement(), new ExpressionStmt(increment)));
+        } else {
+            body = statement();
+        }
+
+        body = new WhileStmt(condition, body);
+        if (initializer != null) {
+            body = new BlockStmt(List.of(initializer, body));
+        }
+
+        return body;
     }
 
     private Stmt whileStatement() {
