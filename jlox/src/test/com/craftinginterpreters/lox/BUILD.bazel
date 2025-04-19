@@ -28,6 +28,7 @@ java_test_suite(
     name = "lox",
     srcs = [
         "BasicTokensScanTest.java",
+        "BlockEndToEndTest.java",
         "InterpreterTest.java",
         "ParseErrorsTest.java",
         "PrintStmtTest.java",

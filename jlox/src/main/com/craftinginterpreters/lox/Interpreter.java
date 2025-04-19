@@ -27,7 +27,19 @@ class Interpreter {
         case VarStmt(Token(var _type, var nilName, var _literal, var _line), var _nil) ->
             environment.define(nilName, null);
 
+        case BlockStmt(var statements) -> executeBlock(statements, new Environment(environment));
+
         };
+    }
+
+    void executeBlock(final List<Stmt> statements, final Environment environment) {
+        Environment previous = this.environment;
+        try {
+            this.environment = environment;
+            statements.forEach(stmt -> execute(stmt));
+        } finally {
+            this.environment = previous;
+        }
     }
 
     Object evaluate(final Expr expr) {

@@ -2,9 +2,19 @@ package com.craftinginterpreters.lox;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 class Environment {
     private final Map<String, Object> values = new HashMap<>();
+    private final Optional<Environment> enclosing;
+
+    Environment() {
+        enclosing = Optional.empty();
+    }
+
+    Environment(final Environment enclosing) {
+        this.enclosing = Optional.ofNullable(enclosing);
+    }
 
     void define(final String name, final Object value) {
         values.put(name, value);
@@ -13,6 +23,8 @@ class Environment {
     void assign(final Token name, final Object value) {
         if (values.containsKey(name.lexeme())) {
             values.put(name.lexeme(), value);
+        } else if (enclosing.isPresent()) {
+            enclosing.get().assign(name, value);
         } else {
             throw new RuntimeError(name, "Undefined variable '" + name.lexeme() + "'.");
         }
@@ -22,7 +34,9 @@ class Environment {
         if (values.containsKey(name.lexeme())) {
             return values.get(name.lexeme());
         } else {
-            throw new RuntimeError(name, "Undefined var '" + name.lexeme() + "'.");
+            return enclosing
+                .map(env -> env.get(name))
+                .orElseThrow(() -> new RuntimeError(name, "Undefined var '" + name.lexeme() + "'."));
         }
     }
 }
