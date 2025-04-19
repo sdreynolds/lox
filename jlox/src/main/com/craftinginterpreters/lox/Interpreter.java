@@ -1,13 +1,26 @@
 package com.craftinginterpreters.lox;
 
+import java.util.List;
+
 class Interpreter {
-    static void interpret(final Expr expr) {
+    static void interpret(final List<Stmt> statements ) {
         try {
-            final var value = Interpreter.evaluate(expr);
-            System.out.println(stringify(value));
+            for (var statement: statements) {
+                execute(statement);
+            }
         } catch (RuntimeError error) {
             Lox.runtimeError(error);
         }
+    }
+
+    static void execute(final Stmt statement) {
+        switch(statement) {
+        case ExpressionStmt(var basicExpr) -> Interpreter.evaluate(basicExpr);
+        case PrintStmt(var stmtToPrint) -> {
+            final var value = Interpreter.evaluate(stmtToPrint);
+            System.out.println(stringify(value));
+        }
+        };
     }
 
     static private String stringify(Object object) {

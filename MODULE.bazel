@@ -24,6 +24,9 @@ maven.install(
         "org.junit.jupiter:junit-jupiter-params",
         "org.junit.vintage:junit-vintage-engine",
 
+        # https://mvnrepository.com/artifact/com.github.stefanbirkner/system-lambda
+        # Gives taps on system out and allows us to catch exit codes!
+        "com.github.stefanbirkner:system-lambda:jar:1.2.1",
         "org.hamcrest:hamcrest:jar:3.0",
     ],
     fetch_sources = True,

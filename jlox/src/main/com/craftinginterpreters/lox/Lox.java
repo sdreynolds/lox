@@ -50,13 +50,13 @@ public class Lox {
         final var tokens = scanner.scanTokens();
 
         final var parser = new Parser(tokens);
-        final var expr = parser.parse();
+        final var stmts = parser.parse();
 
         if (hadError) {
             return;
         }
-        System.out.println(AstPrinter.print(expr));
-        Interpreter.interpret(expr);
+
+        Interpreter.interpret(stmts);
     }
 
     static void error(int line, String message) {

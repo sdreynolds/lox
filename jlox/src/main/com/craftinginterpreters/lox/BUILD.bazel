@@ -11,6 +11,7 @@ java_library(
         "Parser.java",
         "RuntimeError.java",
         "Scanner.java",
+        "Stmt.java",
         "Token.java",
         "TokenType.java",
     ],

@@ -32,6 +32,7 @@ java_test_suite(
         "BasicParserTest.java",
         "BasicTokensScanTest.java",
         "InterpreterTest.java",
+        "PrintStmtTest.java",
         "RuntimeErrorsTest.java",
     ],
     runner = "junit5",
@@ -43,6 +44,7 @@ java_test_suite(
     ],
     deps = [
         "//jlox/src/main/com/craftinginterpreters/lox",
+        "@maven//:com_github_stefanbirkner_system_lambda",
         "@maven//:junit_junit",
         "@maven//:org_hamcrest_hamcrest",
         "@maven//:org_junit_jupiter_junit_jupiter_api",

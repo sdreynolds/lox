@@ -15,12 +15,13 @@ class BasicParserTest {
             new Token(TokenType.NUMBER, "2", 2, 1),
             new Token(TokenType.PLUS, "+", null, 1),
             new Token(TokenType.NUMBER, "4", 4, 1),
+            new Token(TokenType.SEMICOLON, ";", null, 1),
             new Token(TokenType.EOF, "", null, 1)
         );
         final var parser = new Parser(tokens);
         assertEquals(
             "(+ 2 4)",
-            AstPrinter.print(parser.parse())
+            AstPrinter.print(((ExpressionStmt) parser.parse().get(0)).expression())
         );
     }
 }

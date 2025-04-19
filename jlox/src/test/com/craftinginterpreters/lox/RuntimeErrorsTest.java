@@ -13,8 +13,8 @@ class RuntimeErrorsTest {
     void mixingNumbersAndString() {
         final RuntimeError error = assertThrows(
             RuntimeError.class,
-            () -> Interpreter.evaluate(
-                new Parser(new Scanner("2 * (3 / -\"muffin\")").scanTokens()).parse()),
+            () -> Interpreter.execute(
+                new Parser(new Scanner("2 * (3 / -\"muffin\");").scanTokens()).parse().get(0)),
             "Expected a Runtime Error on the unary negation");
         assertThat(error.getMessage(), containsString("Operand must be a number."));
     }
@@ -24,8 +24,8 @@ class RuntimeErrorsTest {
     void mutiplyingStrings() {
         final RuntimeError error = assertThrows(
             RuntimeError.class,
-            () -> Interpreter.evaluate(
-                new Parser(new Scanner("2 * \"is this a three and 0\"").scanTokens()).parse()),
+            () -> Interpreter.execute(
+                new Parser(new Scanner("2 * \"is this a three and 0\";").scanTokens()).parse().get(0)),
             "Expected a Runtime Error when multiplying strings");
         assertThat(error.getMessage(), containsString("Operands must be numbers."));
     }
