@@ -1,11 +1,32 @@
 package com.craftinginterpreters.lox;
 
+import java.util.ArrayList;
 import java.util.List;
 
 class Interpreter {
-    private Environment environment = new Environment();
+    protected Environment globals = new Environment();
+    private Environment environment = globals;
     private boolean exitWhile = false;
     private boolean skipStatements = false;
+
+    Interpreter() {
+        globals.define("clock", new LoxCallable() {
+                @Override
+                public int arity() {
+                    return 0;
+                }
+
+                @Override
+                public Object call(Interpreter interpreter, List<Object> arguments) {
+                    return (double)System.currentTimeMillis() / 1000.0;
+                }
+
+                @Override
+                public String toString() {
+                    return "<native fn>";
+                }
+            });
+    }
 
     void interpret(final List<Stmt> statements ) {
         try {
@@ -53,6 +74,11 @@ class Interpreter {
 
         case BreakStmt() -> exitWhile = true;
         case ContinueStmt() -> skipStatements = true;
+
+        case FunctionStmt functionStmt -> {
+            final var function = new LoxFunction(functionStmt);
+            environment.define(functionStmt.name().lexeme(), function);
+        }
 
         };
     }
@@ -160,7 +186,25 @@ class Interpreter {
             }
             yield evaluate(rightLogical);
         }
+        case CallExpr(var calleeExpr, var lastParen, var callArguments) -> {
+            final var callee = evaluate(calleeExpr);
 
+            if (!(callee instanceof LoxCallable)) {
+                throw new RuntimeError(lastParen, "Can only call functions and classes.");
+            }
+
+            final List<Object> arguments = new ArrayList<>();
+            for (var argument : callArguments) {
+                arguments.add(evaluate(argument));
+            }
+
+            final LoxCallable function = (LoxCallable)callee;
+
+            if (arguments.size() != function.arity()) {
+                throw new RuntimeError(lastParen, "Expected " + function.arity() + " arguments but go " + arguments.size() + ".");
+            }
+            yield function.call(this, arguments);
+        }
         };
     }
 

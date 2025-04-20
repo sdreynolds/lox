@@ -13,3 +13,4 @@ record IfStmt(Expr condition, Stmt thenBranch, Optional<Stmt> elseBranch) implem
 record WhileStmt(Expr condition, Stmt body) implements Stmt {}
 record BreakStmt() implements Stmt{}
 record ContinueStmt() implements Stmt{}
+record FunctionStmt(Token name, List<Token> params, List<Stmt> body) implements Stmt {}

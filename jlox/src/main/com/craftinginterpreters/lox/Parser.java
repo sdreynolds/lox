@@ -31,6 +31,8 @@ class Parser {
         try {
             if (match(VAR)) {
                 return varDeclaration();
+            } else if (match(FUN)) {
+                return function("function");
             } else {
                 return statement();
             }
@@ -38,6 +40,26 @@ class Parser {
             synchronize();
             return null;
         }
+    }
+
+    private FunctionStmt function(final String kind) {
+        final var name = consume(IDENTIFIER, "Expect " + kind + " name.");
+        consume(LEFT_PAREN, "Expect '(' after " + kind + " name.");
+        final List<Token> parameters = new ArrayList<>();
+
+        if (!check(RIGHT_PAREN)) {
+            do {
+                if (parameters.size() >= 255) {
+                    error(peek(), "Can't have more than 255 parameters.");
+                }
+                parameters.add(
+                    consume(IDENTIFIER, "Expect parameter name."));
+            } while (match(COMMA));
+        }
+        consume(RIGHT_PAREN, "Expect ')' after parameters.");
+        consume(LEFT_BRACE, "Expect '{' before " + kind + " body.");
+        final var body = block();
+        return new FunctionStmt(name, parameters, body);
     }
 
     private Stmt varDeclaration() {
@@ -293,7 +315,36 @@ class Parser {
             final var right = unary();
             return new UnaryExpr(operator, right);
         }
-        return primary();
+        return call();
+    }
+
+    private Expr call() {
+        var expr = primary();
+
+        while (true) {
+            if (match(LEFT_PAREN)) {
+                expr = finishCall(expr);
+            } else {
+                break;
+            }
+        }
+        return expr;
+    }
+
+    private Expr finishCall(Expr callee) {
+        final List<Expr> arguments = new ArrayList<>();
+        if (!check(RIGHT_PAREN)) {
+            do {
+                if (arguments.size() >= 255) {
+                    // Don't throw, let it keep going so we can keep parsing.
+                    error(peek(), "Can't have more than 255 arguments.");
+                }
+                arguments.add(expression());
+            } while (match(COMMA));
+        }
+
+        final var paren = consume(RIGHT_PAREN, "Expect ')' after arguments.");
+        return new CallExpr(callee, paren, arguments);
     }
 
     private Expr primary() {
