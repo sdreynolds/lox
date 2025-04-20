@@ -141,4 +141,25 @@ class ConditionalTest {
         final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
         assertEquals("0\n1\n", output);
     }
+
+    @DisplayName("Break out of loop")
+    @Test
+    void breakingOut() throws Exception {
+        final var program = new Parser(
+            new Scanner("var i; for (i = 0; i < 10; ) {print i; i = i + 1; if (i >= 2) break; print \"yep\";} print \"exit\";")
+            .scanTokens())
+            .parse();
+        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        assertEquals("0\nyep\n1\nexit\n", output);
+    }
+
+    @DisplayName("Nested For Loops with Break")
+    @Test
+    void nestedForLoopsBreak() throws Exception {
+        final var parser = new Parser(
+            new Scanner("for (var i = 0; i < 10; i = i + 1) {\n for (var j = 0; j < 10; j = j + 1)\n { print j; break;}}")
+            .scanTokens());
+        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(parser.parse()));
+        assertEquals("0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n", output);
+    }
 }

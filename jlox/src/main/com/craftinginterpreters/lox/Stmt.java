@@ -11,3 +11,4 @@ record VarStmt(Token name, Expr initializer) implements Stmt {}
 record BlockStmt(List<Stmt> statements)implements Stmt{}
 record IfStmt(Expr condition, Stmt thenBranch, Optional<Stmt> elseBranch) implements Stmt {}
 record WhileStmt(Expr condition, Stmt body) implements Stmt {}
+record BreakStmt() implements Stmt{}

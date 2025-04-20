@@ -12,6 +12,7 @@ class Parser {
 
     private final List<Token> tokens;
     private int current = 0;
+    private int loopCounter = 0;
 
     Parser(List<Token> tokens) {
         this.tokens = tokens;
@@ -61,12 +62,35 @@ class Parser {
         } else if (match(IF)) {
             return ifStatement();
         } else if (match(WHILE)) {
-            return whileStatement();
+            loopCounter++;
+            try {
+                final var stmt =  whileStatement();
+                return stmt;
+            } finally {
+                loopCounter--;
+            }
         } else if (match(FOR)) {
-            return forStatement();
+            loopCounter++;
+            try {
+                final var stmt =  forStatement();
+                return stmt;
+            } finally {
+                loopCounter--;
+            }
+        } else if (match(BREAK)) {
+            if (loopCounter == 0) {
+                throw error(previous(), "Cannot break from outside of loop.");
+            }
+            return breakStatement();
         } else {
             return expressionStatement();
         }
+    }
+
+    private Stmt breakStatement() {
+        // break;
+        consume(SEMICOLON, "Expect ';' after 'break'.");
+        return new BreakStmt();
     }
 
     private Stmt forStatement() {

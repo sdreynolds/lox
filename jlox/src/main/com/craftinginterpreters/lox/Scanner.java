@@ -29,7 +29,8 @@ class Scanner {
         Map.entry("this", THIS),
         Map.entry("true", TRUE),
         Map.entry("var", VAR),
-        Map.entry("while", WHILE)
+        Map.entry("while", WHILE),
+        Map.entry("break", BREAK)
         );
 
     Scanner(String source) {

@@ -35,4 +35,14 @@ class ParseErrorsTest {
         final var output = tapSystemErrNormalized(() -> parser.parse());
         assertEquals("[line 1] Error at end: Expect ';' after variable declaration.\n", output);
     }
+
+    @DisplayName("Break outside of loop")
+    @Test
+    void breakOutsideOfLoop() throws Exception {
+        final var parser = new Parser(
+            new Scanner("var i = 0;print i; i = i + 1; if (i >= 2) break;")
+            .scanTokens());
+        final var output = tapSystemErrNormalized(() -> parser.parse());
+        assertEquals("[line 1] Error at 'break': Cannot break from outside of loop.\n", output);
+    }
 }

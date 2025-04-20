@@ -4,6 +4,7 @@ import java.util.List;
 
 class Interpreter {
     private Environment environment = new Environment();
+    private boolean exitWhile = false;
 
     void interpret(final List<Stmt> statements ) {
         try {
@@ -16,6 +17,9 @@ class Interpreter {
     }
 
     void execute(final Stmt statement) {
+        if (exitWhile) {
+            return;
+        }
         switch(statement) {
         case ExpressionStmt(var basicExpr) -> evaluate(basicExpr);
         case PrintStmt(var stmtToPrint) -> {
@@ -38,10 +42,13 @@ class Interpreter {
         }
 
         case WhileStmt(var whileCondition, var whileBody) -> {
-            while(isTruthy(evaluate(whileCondition))) {
+            while(isTruthy(evaluate(whileCondition)) && !exitWhile) {
                 execute(whileBody);
             }
+            exitWhile = false;
         }
+
+        case BreakStmt() -> exitWhile = true;
 
         };
     }
