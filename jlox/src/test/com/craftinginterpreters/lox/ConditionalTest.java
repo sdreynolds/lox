@@ -162,4 +162,19 @@ class ConditionalTest {
         final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(parser.parse()));
         assertEquals("0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n", output);
     }
+
+    @DisplayName("Continue Loop")
+    @Test
+    void continueLoop() throws Exception {
+        // The following program creates an infinite loop because the increment is ignored after
+        // i > 5
+        // for (var i = 0; i < 10; i = i + 1) {if (i > 5) continue; print i;}
+        final var program = new Parser(
+            new Scanner(
+                "var i = 0; while(i < 10) {i = i + 1; if (i > 5) continue; print i;} print \"exit\";"
+                ).scanTokens())
+            .parse();
+        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        assertEquals("1\n2\n3\n4\n5\nexit\n", output);
+    }
 }

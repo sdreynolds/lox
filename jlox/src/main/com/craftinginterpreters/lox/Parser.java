@@ -82,9 +82,20 @@ class Parser {
                 throw error(previous(), "Cannot break from outside of loop.");
             }
             return breakStatement();
+        } else if (match(CONTINUE)) {
+            if (loopCounter == 0) {
+                throw error(previous(), "Cannot continue from outside of a loop.");
+            }
+            return continueStatement();
         } else {
             return expressionStatement();
         }
+    }
+
+    private Stmt continueStatement() {
+        // continue;
+        consume(SEMICOLON, "Expect ';' after 'continue'.");
+        return new ContinueStmt();
     }
 
     private Stmt breakStatement() {

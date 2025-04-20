@@ -30,7 +30,8 @@ class Scanner {
         Map.entry("true", TRUE),
         Map.entry("var", VAR),
         Map.entry("while", WHILE),
-        Map.entry("break", BREAK)
+        Map.entry("break", BREAK),
+        Map.entry("continue", CONTINUE)
         );
 
     Scanner(String source) {

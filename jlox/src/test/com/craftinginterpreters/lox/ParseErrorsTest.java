@@ -45,4 +45,14 @@ class ParseErrorsTest {
         final var output = tapSystemErrNormalized(() -> parser.parse());
         assertEquals("[line 1] Error at 'break': Cannot break from outside of loop.\n", output);
     }
+
+    @DisplayName("Continue outside of loop")
+    @Test
+    void continueOutsideOfLoop() throws Exception {
+        final var parser = new Parser(
+            new Scanner("var i = 0;print i; i = i + 1; if (i >= 2) continue;")
+            .scanTokens());
+        final var output = tapSystemErrNormalized(() -> parser.parse());
+        assertEquals("[line 1] Error at 'continue': Cannot continue from outside of a loop.\n", output);
+    }
 }
