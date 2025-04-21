@@ -109,9 +109,24 @@ class Parser {
                 throw error(previous(), "Cannot continue from outside of a loop.");
             }
             return continueStatement();
+        } else if (match(RETURN)) {
+            return returnStatement();
         } else {
             return expressionStatement();
         }
+    }
+
+    private Stmt returnStatement() {
+        final var keyword = previous();
+        final Optional<Expr> value;
+        if (!check(SEMICOLON)) {
+            value = Optional.ofNullable(expression());
+        } else {
+            value = Optional.empty();
+        }
+
+        consume(SEMICOLON, "Expect ';' after return value.");
+        return new ReturnStmt(keyword, value);
     }
 
     private Stmt continueStatement() {

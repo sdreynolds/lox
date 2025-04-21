@@ -80,6 +80,9 @@ class Interpreter {
             environment.define(functionStmt.name().lexeme(), function);
         }
 
+        case ReturnStmt(var _keyword, var returnValue) when !returnValue.isEmpty() -> throw new Return(evaluate(returnValue.get()));
+        case ReturnStmt nullReturn -> throw new Return(null);
+
         };
     }
 

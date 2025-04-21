@@ -11,6 +11,7 @@ java_library(
         "LoxCallable.java",
         "LoxFunction.java",
         "Parser.java",
+        "Return.java",
         "RuntimeError.java",
         "Scanner.java",
         "Stmt.java",

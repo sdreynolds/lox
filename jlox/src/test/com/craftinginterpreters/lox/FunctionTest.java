@@ -30,7 +30,30 @@ class FunctionTest {
                 ).scanTokens()
             ).parse();
         final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
-        // Should be empty with no error
         assertEquals("Hi, Dear Reader!\n", output);
+    }
+
+    @DisplayName("Nested return from calls")
+    @Test
+    void nestedReturn() throws Exception {
+        final var program = new Parser(
+            new Scanner(
+                "fun count(n) { while (n < 100) { if (n == 3) return n; print n; n = n + 1;}} count(1);"
+                ).scanTokens()
+            ).parse();
+        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        assertEquals("1\n2\n", output);
+    }
+
+    @DisplayName("Finonacci Test")
+    @Test
+    void fib() throws Exception {
+        final var program = new Parser(
+            new Scanner(
+                "fun fib(n) { if (n <= 1) return n; return fib(n - 2) + fib (n - 1);} print fib(18);"
+                ).scanTokens()
+            ).parse();
+        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        assertEquals("2584\n", output);
     }
 }
