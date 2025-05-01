@@ -6,8 +6,6 @@ import java.util.List;
 class Interpreter {
     protected Environment globals = new Environment();
     private Environment environment = globals;
-    private boolean exitWhile = false;
-    private boolean skipStatements = false;
 
     Interpreter() {
         globals.define("clock", new LoxCallable() {
@@ -39,9 +37,6 @@ class Interpreter {
     }
 
     void execute(final Stmt statement) {
-        if (exitWhile || skipStatements) {
-            return;
-        }
         switch(statement) {
         case ExpressionStmt(var basicExpr) -> evaluate(basicExpr);
         case PrintStmt(var stmtToPrint) -> {
@@ -64,16 +59,21 @@ class Interpreter {
         }
 
         case WhileStmt(var whileCondition, var whileBody) -> {
-            while(isTruthy(evaluate(whileCondition)) && !exitWhile) {
-                skipStatements = false;
-                execute(whileBody);
+            try {
+            while(isTruthy(evaluate(whileCondition))) {
+                try {
+                    execute(whileBody);
+                } catch (Continue condtinueOut) {
+                    // do nothing
+                }
             }
-            exitWhile = false;
-            skipStatements = false;
+            } catch (Break breakOut) {
+                // do nothing.
+            }
         }
 
-        case BreakStmt() -> exitWhile = true;
-        case ContinueStmt() -> skipStatements = true;
+        case BreakStmt() -> throw new Break();
+        case ContinueStmt() -> throw new Continue();
 
         case FunctionStmt functionStmt -> {
             final var function = new LoxFunction(functionStmt);
