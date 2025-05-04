@@ -56,4 +56,16 @@ class FunctionTest {
         final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
         assertEquals("2584\n", output);
     }
+
+    @DisplayName("counter scope test")
+    @Test
+    void counterTest() throws Exception {
+        final var program = new Parser(
+            new Scanner(
+                "fun makeCounter() { var i = 0; fun count() { i = i + 1; print i;} return count;}  var counter = makeCounter(); counter(); counter();")
+            .scanTokens())
+            .parse();
+        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        assertEquals("1\n2\n", output);
+    }
 }

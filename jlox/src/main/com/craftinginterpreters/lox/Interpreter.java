@@ -76,7 +76,7 @@ class Interpreter {
         case ContinueStmt() -> throw new Continue();
 
         case FunctionStmt functionStmt -> {
-            final var function = new LoxFunction(functionStmt);
+            final var function = new LoxFunction(functionStmt, environment);
             environment.define(functionStmt.name().lexeme(), function);
         }
 
