@@ -2,10 +2,13 @@ package com.craftinginterpreters.lox;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 class Interpreter {
     protected Environment globals = new Environment();
     private Environment environment = globals;
+    private final Map<Expr, Integer> locals = new HashMap<>();
 
     Interpreter() {
         globals.define("clock", new LoxCallable() {
@@ -24,6 +27,10 @@ class Interpreter {
                     return "<native fn>";
                 }
             });
+    }
+
+    void resolve(Expr expr, int depth) {
+        locals.put(expr, depth);
     }
 
     void interpret(final List<Stmt> statements ) {
@@ -166,11 +173,17 @@ class Interpreter {
             default -> null;
             };
         }
-        case VariableExpr(var nameToken) -> environment.get(nameToken);
+        case VariableExpr(var nameToken) -> lookUpVariable(nameToken, expr);
 
         case AssignExpr(var assignName, var value) -> {
             final var evaluation = evaluate(value);
-            environment.assign(assignName, evaluation);
+
+            var distance = locals.get(expr);
+            if (distance != null) {
+                environment.assignAt(distance, assignName, evaluation);
+            } else {
+                environment.assign(assignName, evaluation);
+            }
             // Return the value
             yield evaluation;
         }
@@ -209,6 +222,15 @@ class Interpreter {
             yield function.call(this, arguments);
         }
         };
+    }
+
+    private Object lookUpVariable(final Token name, final Expr expr) {
+        final var distance = locals.get(expr);
+        if (distance != null) {
+            return environment.getAt(distance, name.lexeme());
+        } else {
+            return globals.get(name);
+        }
     }
 
     static private boolean isEqual(Object a, Object b) {

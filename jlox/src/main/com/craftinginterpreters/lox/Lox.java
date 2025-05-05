@@ -59,6 +59,8 @@ public class Lox {
             return;
         }
 
+        final var resolver = new Resolver(interpreter);
+
         interpreter.interpret(stmts);
     }
 

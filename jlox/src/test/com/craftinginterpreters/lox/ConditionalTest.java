@@ -156,10 +156,15 @@ class ConditionalTest {
     @DisplayName("Nested For Loops with Break")
     @Test
     void nestedForLoopsBreak() throws Exception {
-        final var parser = new Parser(
+        final var program = new Parser(
             new Scanner("for (var i = 0; i < 10; i = i + 1) {\n for (var j = 0; j < 10; j = j + 1)\n { print j; break;}}")
-            .scanTokens());
-        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(parser.parse()));
+            .scanTokens()).parse();
+        final var output = tapSystemOutNormalized(() -> {
+                final var interpreter = new Interpreter();
+                final var resolver = new Resolver(interpreter);
+                resolver.resolve(program);
+                interpreter.interpret(program);
+            });
         assertEquals("0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n", output);
     }
 
