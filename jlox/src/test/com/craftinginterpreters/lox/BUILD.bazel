@@ -41,6 +41,7 @@ java_test_suite(
         "ParseErrorsTest.java",
         "PrintStmtTest.java",
         "ResolverEnd2EndTest.java",
+        "ResolverForLoopTest.java",
         "RuntimeErrorsTest.java",
     ],
     runner = "junit5",

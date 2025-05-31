@@ -38,12 +38,10 @@ class Resolver {
         }
         case VarStmt(Token(var _type, var varName, var _literal, var _line), var varInit) -> {
             declare(varName);
-            System.out.println("Declaring " + varName);
             if (varInit != null) {
                 resolveExpression(varInit);
             }
             define(varName);
-            System.out.println("Defined " + varName);
         }
         case ExpressionStmt(var expression) -> resolveExpression(expression);
         case IfStmt(var condition, var thenBranch, var elseBranch) when elseBranch.isPresent() -> {

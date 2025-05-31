@@ -113,10 +113,15 @@ class ConditionalTest {
     @Test
     void forLoopCounterPrinter() throws Exception {
         final var program = new Parser(
-            new Scanner("for (var i = 0; i < 2; i = i + 1) print i;")
+            new Scanner("for (var i = 0; i < 2; \ni = i + 1) print i;")
             .scanTokens())
             .parse();
-        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        final var output = tapSystemOutNormalized(() -> {
+                final var interpreter = new Interpreter();
+                final var resolver = new Resolver(interpreter);
+                resolver.resolve(program);
+                interpreter.interpret(program);
+            });
         assertEquals("0\n1\n", output);
     }
 
@@ -157,7 +162,7 @@ class ConditionalTest {
     @Test
     void nestedForLoopsBreak() throws Exception {
         final var program = new Parser(
-            new Scanner("for (var i = 0; i < 10; i = i + 1) {\n for (var j = 0; j < 10; j = j + 1)\n { print j; break;}}")
+            new Scanner("for (var i = 0; i < 10; \ni = i + 1) {\n for (var j = 0; j < 10; \nj = j + 1)\n { print j; break;}}")
             .scanTokens()).parse();
         final var output = tapSystemOutNormalized(() -> {
                 final var interpreter = new Interpreter();

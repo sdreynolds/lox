@@ -9,6 +9,7 @@ class Interpreter {
     protected Environment globals = new Environment();
     private Environment environment = globals;
     private final Map<Expr, Integer> locals = new HashMap<>();
+    protected boolean hadError = false;
 
     Interpreter() {
         globals.define("clock", new LoxCallable() {
@@ -34,12 +35,14 @@ class Interpreter {
     }
 
     void interpret(final List<Stmt> statements ) {
+        hadError = false;
         try {
             for (var statement: statements) {
                 execute(statement);
             }
         } catch (RuntimeError error) {
             Lox.runtimeError(error);
+            hadError = true;
         }
     }
 
@@ -269,6 +272,9 @@ class Interpreter {
     }
 
     static private void checkNumberOperand(final Token operator, Object operand) {
+        if (operand == null) {
+            throw new RuntimeError(operator, "Operand must not be null.");
+        }
         if (operand instanceof Double) {
             return;
         }
@@ -276,6 +282,12 @@ class Interpreter {
     }
 
     static private void checkNumberOperands(final Token operator, final Object left, final Object right) {
+        if (left == null) {
+            throw new RuntimeError(operator, "Left operand must not be null");
+        }
+        if (right == null) {
+            throw new RuntimeError(operator, "Right operand must not be null");
+        }
         if (left instanceof Double && right instanceof Double) {
             return;
         }
