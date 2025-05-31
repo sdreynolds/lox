@@ -5,6 +5,7 @@ gazelle_binary(
     languages = [
         "@gazelle//language/proto:go_default_library",
         "@contrib_rules_jvm//java/gazelle",
+        "@gazelle_cc//language/cc",
     ],
     visibility = ["//visibility:private"],
 )

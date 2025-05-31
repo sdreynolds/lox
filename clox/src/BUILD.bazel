@@ -1,0 +1,23 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+
+cc_library(
+    name = "src",
+    srcs = [
+        "chunk.c",
+        "debug.c",
+        "memory.c",
+    ],
+    hdrs = [
+        "chunk.h",
+        "common.h",
+        "debug.h",
+        "memory.h",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "main",
+    srcs = ["main.c"],
+    deps = [":src"],
+)
