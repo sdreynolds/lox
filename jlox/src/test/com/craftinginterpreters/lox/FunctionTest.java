@@ -16,7 +16,10 @@ class FunctionTest {
                 "print clock() / 1000;"
                 ).scanTokens()
             ).parse();
-        final var output = tapSystemErrNormalized(() -> new Interpreter().interpret(program));
+        final var interpreter = new Interpreter();
+        final var resolver = new Resolver(interpreter);
+        resolver.resolve(program);
+        final var output = tapSystemErrNormalized(() -> interpreter.interpret(program));
         // Should be empty with no error
         assertEquals("", output);
     }
@@ -29,7 +32,10 @@ class FunctionTest {
                 "fun sayHi(first, last) { print \"Hi, \" + first + \" \" + last + \"!\";}\n sayHi(\"Dear\", \"Reader\");"
                 ).scanTokens()
             ).parse();
-        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        final var interpreter = new Interpreter();
+        final var resolver = new Resolver(interpreter);
+        resolver.resolve(program);
+        final var output = tapSystemOutNormalized(() -> interpreter.interpret(program));
         assertEquals("Hi, Dear Reader!\n", output);
     }
 
@@ -38,10 +44,13 @@ class FunctionTest {
     void nestedReturn() throws Exception {
         final var program = new Parser(
             new Scanner(
-                "fun count(n) { while (n < 100) { if (n == 3) return n; print n; n = n + 1;}} count(1);"
+                "fun count(n) { \nwhile (n < 100) { \nif (n == 3) \nreturn n; \nprint n; \nn = n + 1;\n}\n}\n count(1);"
                 ).scanTokens()
             ).parse();
-        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        final var interpreter = new Interpreter();
+        final var resolver = new Resolver(interpreter);
+        resolver.resolve(program);
+        final var output = tapSystemOutNormalized(() -> interpreter.interpret(program));
         assertEquals("1\n2\n", output);
     }
 
@@ -53,7 +62,10 @@ class FunctionTest {
                 "fun fib(n) { if (n <= 1) return n; return fib(n - 2) + fib (n - 1);} print fib(18);"
                 ).scanTokens()
             ).parse();
-        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        final var interpreter = new Interpreter();
+        final var resolver = new Resolver(interpreter);
+        resolver.resolve(program);
+        final var output = tapSystemOutNormalized(() -> interpreter.interpret(program));
         assertEquals("2584\n", output);
     }
 
@@ -62,10 +74,13 @@ class FunctionTest {
     void counterTest() throws Exception {
         final var program = new Parser(
             new Scanner(
-                "fun makeCounter() { var i = 0; fun count() { i = i + 1; print i;} return count;}  var counter = makeCounter(); counter(); counter();")
+                "fun makeCounter() \n{ \nvar i = 0; \nfun count() \n{ \ni = i + 1; \nprint i;\n}\n return count;\n}  var counter = makeCounter();\n counter();\n counter();\n")
             .scanTokens())
             .parse();
-        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        final var interpreter = new Interpreter();
+        final var resolver = new Resolver(interpreter);
+        resolver.resolve(program);
+        final var output = tapSystemOutNormalized(() -> interpreter.interpret(program));
         assertEquals("1\n2\n", output);
     }
 }

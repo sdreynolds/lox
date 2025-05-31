@@ -13,10 +13,13 @@ class ResolverEnd2EndTest {
     void globalAndBlockScope() throws Exception {
         final var program = new Parser(
             new Scanner(
-                "var a = \"global\"; { fun showA() { print a;} showA(); var a = \"block\"; showA();}")
+                "var a = \"global\"; \n{ \nfun showA() \n{ \nprint a;\n} \nshowA(); \nvar a = \"block\"; \nshowA();\n}")
             .scanTokens())
             .parse();
-        final var output = tapSystemOutNormalized(() -> new Interpreter().interpret(program));
+        final var interpreter = new Interpreter();
+        final var resolver = new Resolver(interpreter);
+        resolver.resolve(program);
+        final var output = tapSystemOutNormalized(() -> interpreter.interpret(program));
         assertEquals("global\nglobal\n", output);
     }
 
@@ -25,10 +28,15 @@ class ResolverEnd2EndTest {
     void initSelfReference() throws Exception {
         final var program = new Parser(
             new Scanner(
-                "var a = \"outer\"; { var a = a; } ")
+                "var a = \"outer\"; \n{ \nvar a = a; \n} ")
             .scanTokens())
             .parse();
-        final var output = tapSystemErrNormalized(() -> new Interpreter().interpret(program));
-        assertEquals("global\nglobal\n", output);
+        final var interpreter = new Interpreter();
+        final var resolver = new Resolver(interpreter);
+        final var output = tapSystemErrNormalized(() -> {
+                resolver.resolve(program);
+                interpreter.interpret(program);
+            });
+        assertEquals("[line 3] Error at 'a': Cannot read local variable in its own initializer.\n", output);
     }
 }
