@@ -6,12 +6,14 @@ cc_library(
         "chunk.c",
         "debug.c",
         "memory.c",
+        "value.c",
     ],
     hdrs = [
         "chunk.h",
         "common.h",
         "debug.h",
         "memory.h",
+        "value.h",
     ],
     visibility = ["//visibility:public"],
 )

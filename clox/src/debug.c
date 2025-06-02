@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "debug.h"
+#include "value.h"
 
 void disassembleChunk(Chunk* chunk, const char* name) {
     printf("== %s ==\n", name);
@@ -20,8 +21,18 @@ int disassembleInstruction(Chunk* chunk, int offset) {
     switch (instruction) {
     case OP_RETURN:
         return simpleInstruction("OP_RETURN", offset);
+    case OP_CONSTANT:
+        return constantInstruction("OP_CONSTANT", chunk, offset);
     default:
         printf("Unknown opcode %d\n", instruction);
         return offset + 1;
     }
+}
+
+int constantInstruction(const char* name, Chunk* chunk, int offset) {
+    uint8_t constant = chunk->code[offset + 1];
+    printf("%-16s %d '", name, constant);
+    printValue(chunk->constants.values[constant]);
+    printf("'\n");
+    return offset + 2;
 }
