@@ -4,11 +4,11 @@ cc_test(
     name = "test",
     srcs = [
         "hello_world_test.cc",
+        "main_test.cc",
         "opcode_test.cc",
     ],
     deps = [
         "//clox/src",
         "@googletest//:gtest",
-        "@googletest//:gtest_main"
     ],
 )
