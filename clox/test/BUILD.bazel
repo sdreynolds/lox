@@ -2,8 +2,12 @@ load("@rules_cc//cc:defs.bzl", "cc_test")
 
 cc_test(
     name = "test",
-    srcs = ["hello_world_test.cc"],
+    srcs = [
+        "hello_world_test.cc",
+        "opcode_test.cc",
+    ],
     deps = [
+        "//clox/src",
         "@googletest//:gtest",
         "@googletest//:gtest_main"
     ],
