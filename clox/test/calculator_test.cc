@@ -1,11 +1,15 @@
-#include "chunk.h"
-#include "debug.h"
-#include "vm.h"
+#include <gtest/gtest.h>
 
-int main(int argc, const char* argv[]) {
+
+extern "C" {
+#include "clox/src/vm.h"
+}
+
+TEST(CalculatorTest, AddAndDivideAndNegate) {
     initVM();
 
     Chunk chunk;
+    initChunk(&chunk);
     int constant = addConstant(&chunk, 1.2);
     writeChunk(&chunk, OP_CONSTANT, 789);
     writeChunk(&chunk, constant, 789);
@@ -24,9 +28,11 @@ int main(int argc, const char* argv[]) {
     writeChunk(&chunk, OP_NEGATE, 790);
 
     writeChunk(&chunk, OP_RETURN, 800);
-    interpret(&chunk);
+
+    InterpretResult result = interpret(&chunk);
 
     freeChunk(&chunk);
     freeVM();
-    return 0;
+
+    EXPECT_EQ(INTERPRET_OK, result);
 }
