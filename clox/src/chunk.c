@@ -50,17 +50,20 @@ void initLineRunLength(LineRunLength* runLength, int line) {
 }
 
 int getLine(Chunk* chunk, int offset) {
-    int runningOffset = 1;
+    int calculatedOffset = -1;
     int i = 0;
-    while (runningOffset < offset) {
-        runningOffset = runningOffset + chunk->lines[i++].repeatedValues;
+    for (; i < chunk->uniqueLines; i++) {
+        calculatedOffset += chunk->lines[i].repeatedValues;
+        if (calculatedOffset >= offset) {
+            break;
+        }
     }
     return chunk->lines[i].line;
 }
 
 void freeChunk(Chunk* chunk) {
     FREE_ARRAY(uint8_t, chunk->code, chunk->capacity);
-    FREE_ARRAY(int, chunk->lines, chunk->capacity);
+    FREE_ARRAY(LineRunLength, chunk->lines, chunk->capacity);
     freeValueArray(&chunk->constants);
     initChunk(chunk);
 }

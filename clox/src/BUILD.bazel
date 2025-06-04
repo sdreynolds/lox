@@ -7,6 +7,7 @@ cc_library(
         "debug.c",
         "memory.c",
         "value.c",
+        "vm.c",
     ],
     hdrs = [
         "chunk.h",
@@ -14,6 +15,7 @@ cc_library(
         "debug.h",
         "memory.h",
         "value.h",
+        "vm.h",
     ],
     visibility = ["//visibility:public"],
 )
