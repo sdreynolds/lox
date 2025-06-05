@@ -29,7 +29,7 @@ TEST(CalculatorTest, AddAndDivideAndNegate) {
 
     writeChunk(&chunk, OP_RETURN, 800);
 
-    InterpretResult result = interpret(&chunk);
+    InterpretResult result = interpretDirect(&chunk);
 
     freeChunk(&chunk);
     freeVM();
