@@ -45,3 +45,14 @@ TEST(SimpleToken, UnterminatedString) {
     EXPECT_EQ(TOKEN_ERROR, result.type);
 
 }
+
+TEST(Simpletoken, NaturalNumber) {
+    initScanner("10385");
+    EXPECT_EQ(TOKEN_NUMBER, scanToken().type);
+}
+
+TEST(Simpletoken, Decimal) {
+    initScanner("103.85");
+    EXPECT_EQ(TOKEN_NUMBER, scanToken().type);
+    EXPECT_EQ(TOKEN_EOF, scanToken().type);
+}
