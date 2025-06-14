@@ -87,6 +87,21 @@ static bool match(char expected) {
     return true;
 }
 
+static Token string() {
+    while (peek() != '"' && !isAtEnd()) {
+        if (peek() == '\n') {
+            scanner.line++;
+        }
+        advance();
+    }
+
+    if (isAtEnd()) return errorToken("Unterminated string.");
+
+    // The closing quote.
+    advance();
+    return makeToken(TOKEN_STRING);
+}
+
 Token scanToken() {
     skipWhitespace();
     scanner.start = scanner.current;
@@ -115,6 +130,8 @@ Token scanToken() {
         return makeToken(match('=') ? TOKEN_LESS_EQUAL : TOKEN_LESS);
     case '>':
         return makeToken(match('=') ? TOKEN_GREATER_EQUAL : TOKEN_GREATER);
+
+    case '"': return string();
     }
 
     return errorToken("Unexpected character.");
