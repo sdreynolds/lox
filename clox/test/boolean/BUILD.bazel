@@ -1,10 +1,9 @@
 load("@rules_cc//cc:defs.bzl", "cc_test")
 
 cc_test(
-    name = "test",
+    name = "boolean_test",
     srcs = [
-        "calculator_test.cc",
-        "hello_world_test.cc",
+        "compare_test.cc",
         "main_test.cc",
     ],
     deps = [
