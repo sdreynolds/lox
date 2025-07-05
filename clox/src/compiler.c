@@ -4,6 +4,8 @@
 #include "common.h"
 #include "compiler.h"
 #include "scanner.h"
+#include "table.h"
+#include "memory.h"
 
 #ifdef DEBUG_PRINT_CODE
 #include "debug.h"
@@ -14,6 +16,7 @@ typedef struct {
     Token previous;
     bool hadError;
     bool panicMode;
+    Table constantIndex;
 } Parser;
 
 typedef enum {
@@ -137,7 +140,18 @@ static void endCompiler() {
 static void parsePrecedence(Precedence);
 
 static uint8_t identifierConstant(Token* name) {
-    return makeConstant(OBJ_VAL(copyString(name->start, name->length)));
+    uint8_t constantIdx;
+
+    ObjString* str = copyString(name->start, name->length);
+    Value existingIdx;
+
+    if (tableGet(&parser.constantIndex, str, &existingIdx)) {
+        constantIdx = (uint8_t)(AS_NUMBER(existingIdx));
+    } else {
+        constantIdx = makeConstant(OBJ_VAL(str));
+        tableSet(&parser.constantIndex, str, NUMBER_VAL(constantIdx));
+    }
+    return constantIdx;
 }
 
 static uint8_t parseVariable(const char* errorMessage) {
@@ -366,6 +380,7 @@ bool compile(const char* source, Chunk* chunk) {
 
     parser.hadError = false;
     parser.panicMode = false;
+    initTable(&parser.constantIndex);
 
     advance();
 
