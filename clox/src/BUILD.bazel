@@ -32,4 +32,5 @@ cc_binary(
     name = "main",
     srcs = ["main.c"],
     deps = [":src"],
+    visibility = ["//clox/test/programs:__subpackages__"]
 )

@@ -1,0 +1,29 @@
+load("@bazel_skylib//rules:diff_test.bzl", "diff_test")
+
+diff_test(
+    name = "math_boolean_test_diff",
+    file1 = ":math_boolean_test",
+    file2 = "expected_math_boolean_test.output",
+)
+
+genrule(
+    name = "math_boolean_test",
+    outs = ["math_boolean_test.output"],
+    cmd = "$(location //clox/src:main) $(location math_boolean_test.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+    srcs = ["math_boolean_test.lox"]
+)
+
+diff_test(
+    name = "breakfast_test_diff",
+    file1 = ":breakfast_test",
+    file2 = "expected_breakfast_test.output",
+)
+
+genrule(
+    name = "breakfast_test",
+    outs = ["breakfast_test.output"],
+    cmd = "$(location //clox/src:main) $(location breakfast_test.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+    srcs = ["breakfast_test.lox"]
+)
