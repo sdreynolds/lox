@@ -27,3 +27,17 @@ genrule(
     tools = ["//clox/src:main"],
     srcs = ["breakfast_test.lox"]
 )
+
+diff_test(
+    name = "lots_of_prints_test_diff",
+    file1 = ":lots_of_prints_test",
+    file2 = "expected_lots_of_prints_test.output",
+)
+
+genrule(
+    name = "lots_of_prints_test",
+    outs = ["lots_of_prints_test.output"],
+    cmd = "$(location //clox/src:main) $(location lots_of_prints_test.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+    srcs = ["lots_of_prints_test.lox"]
+)

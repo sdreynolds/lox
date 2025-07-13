@@ -140,18 +140,20 @@ static void endCompiler() {
 static void parsePrecedence(Precedence);
 
 static uint8_t identifierConstant(Token* name) {
-    uint8_t constantIdx;
-
     ObjString* str = copyString(name->start, name->length);
     Value existingIdx;
 
+    // @TODO: this was a challenge question and it doesn't work with stable constants.
+    // Using print statements like in lots_of_prints_test.lox, this check works.
+    // BUT if you create lots of `a = a + 1`, the number of `1` added to the constant
+    // table will break the system.
     if (tableGet(&parser.constantIndex, str, &existingIdx)) {
-        constantIdx = (uint8_t)(AS_NUMBER(existingIdx));
+        return (uint8_t)(AS_NUMBER(existingIdx));
     } else {
-        constantIdx = makeConstant(OBJ_VAL(str));
+        uint8_t constantIdx = makeConstant(OBJ_VAL(str));
         tableSet(&parser.constantIndex, str, NUMBER_VAL(constantIdx));
+        return constantIdx;
     }
-    return constantIdx;
 }
 
 static uint8_t parseVariable(const char* errorMessage) {
