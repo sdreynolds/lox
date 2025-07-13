@@ -31,6 +31,6 @@ cc_library(
 cc_binary(
     name = "main",
     srcs = ["main.c"],
+    visibility = ["//clox/test/programs:__subpackages__"],
     deps = [":src"],
-    visibility = ["//clox/test/programs:__subpackages__"]
 )

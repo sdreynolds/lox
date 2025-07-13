@@ -1,0 +1,11 @@
+{
+  var a = "outer";
+  {
+    var a = "inner";
+    var b = "another variable";
+    print "Shadow: " + a;
+    var c = "also a variable";
+    print "another t: " + b;
+  }
+  print "Outer: " + a;
+}

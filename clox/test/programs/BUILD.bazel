@@ -8,10 +8,10 @@ diff_test(
 
 genrule(
     name = "math_boolean_test",
+    srcs = ["math_boolean_test.lox"],
     outs = ["math_boolean_test.output"],
     cmd = "$(location //clox/src:main) $(location math_boolean_test.lox)> \"$@\"",
     tools = ["//clox/src:main"],
-    srcs = ["math_boolean_test.lox"]
 )
 
 diff_test(
@@ -22,10 +22,10 @@ diff_test(
 
 genrule(
     name = "breakfast_test",
+    srcs = ["breakfast_test.lox"],
     outs = ["breakfast_test.output"],
     cmd = "$(location //clox/src:main) $(location breakfast_test.lox)> \"$@\"",
     tools = ["//clox/src:main"],
-    srcs = ["breakfast_test.lox"]
 )
 
 diff_test(
@@ -36,8 +36,22 @@ diff_test(
 
 genrule(
     name = "lots_of_prints_test",
+    srcs = ["lots_of_prints_test.lox"],
     outs = ["lots_of_prints_test.output"],
     cmd = "$(location //clox/src:main) $(location lots_of_prints_test.lox)> \"$@\"",
     tools = ["//clox/src:main"],
-    srcs = ["lots_of_prints_test.lox"]
+)
+
+diff_test(
+    name = "inner_outer_local_test_diff",
+    file1 = ":inner_outer_local_test",
+    file2 = "expected_inner_outer_local_test.output",
+)
+
+genrule(
+    name = "inner_outer_local_test",
+    srcs = ["inner_outer_local_test.lox"],
+    outs = ["inner_outer_local_test.output"],
+    cmd = "$(location //clox/src:main) $(location inner_outer_local_test.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
 )
