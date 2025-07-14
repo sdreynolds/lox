@@ -1,0 +1,15 @@
+var c = 1;
+var b = 2.3;
+var a = 1444.5579;
+
+if (a > b and a > c)
+  print "a is largest";
+if (b > a or c > a) {
+  print "a is not the largest";
+} else {
+  print "a still is the largest";
+}
+
+
+if (b > a or c < a)
+  print "c is def less";

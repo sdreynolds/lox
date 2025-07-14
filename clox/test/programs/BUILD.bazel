@@ -69,3 +69,18 @@ genrule(
     cmd = "$(location //clox/src:main) $(location first_condition.lox)> \"$@\"",
     tools = ["//clox/src:main"],
 )
+
+
+diff_test(
+    name = "and_or_conditions_diff",
+    file1 = ":and_or_conditions",
+    file2 = "expected_and_or_conditions.output",
+)
+
+genrule(
+    name = "and_or_conditions",
+    srcs = ["and_or_conditions.lox"],
+    outs = ["and_or_conditions.output"],
+    cmd = "$(location //clox/src:main) $(location and_or_conditions.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)

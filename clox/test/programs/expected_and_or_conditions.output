@@ -1,0 +1,147 @@
+== code ==
+0000    1 OP_CONSTANT      1 '1'
+0002    | OP_DEFINE_GLOBAL 0 'c'
+0004    2 OP_CONSTANT      3 '2.3'
+0006    | OP_DEFINE_GLOBAL 2 'b'
+0008    3 OP_CONSTANT      5 '1444.56'
+0010    | OP_DEFINE_GLOBAL 4 'a'
+0012    5 OP_GET_GLOBAL    4 'a'
+0014    | OP_GET_GLOBAL    2 'b'
+0016    | OP_GREATER
+0017    | OP_JUMP_IF_FALSE 17 -> 26
+0020    | OP_POP
+0021    | OP_GET_GLOBAL    4 'a'
+0023    | OP_GET_GLOBAL    0 'c'
+0025    | OP_GREATER
+0026    | OP_JUMP_IF_FALSE 26 -> 36
+0029    | OP_POP
+0030    6 OP_CONSTANT      6 'a is largest'
+0032    | OP_PRINT
+0033    | OP_JUMP          33 -> 37
+0036    | OP_POP
+0037    7 OP_GET_GLOBAL    2 'b'
+0039    | OP_GET_GLOBAL    4 'a'
+0041    | OP_GREATER
+0042    | OP_JUMP_IF_FALSE 42 -> 48
+0045    | OP_JUMP          45 -> 54
+0048    | OP_POP
+0049    | OP_GET_GLOBAL    0 'c'
+0051    | OP_GET_GLOBAL    4 'a'
+0053    | OP_GREATER
+0054    | OP_JUMP_IF_FALSE 54 -> 64
+0057    | OP_POP
+0058    8 OP_CONSTANT      7 'a is not the largest'
+0060    | OP_PRINT
+0061    9 OP_JUMP          61 -> 68
+0064    | OP_POP
+0065   10 OP_CONSTANT      8 'a still is the largest'
+0067    | OP_PRINT
+0068   14 OP_GET_GLOBAL    2 'b'
+0070    | OP_GET_GLOBAL    4 'a'
+0072    | OP_GREATER
+0073    | OP_JUMP_IF_FALSE 73 -> 79
+0076    | OP_JUMP          76 -> 85
+0079    | OP_POP
+0080    | OP_GET_GLOBAL    0 'c'
+0082    | OP_GET_GLOBAL    4 'a'
+0084    | OP_LESS
+0085    | OP_JUMP_IF_FALSE 85 -> 95
+0088    | OP_POP
+0089   15 OP_CONSTANT      9 'c is def less'
+0091    | OP_PRINT
+0092    | OP_JUMP          92 -> 96
+0095    | OP_POP
+0096   16 OP_RETURN
+             
+0000    1 OP_CONSTANT      1 '1'
+             [ 1 ]
+0002    | OP_DEFINE_GLOBAL 0 'c'
+             
+0004    2 OP_CONSTANT      3 '2.3'
+             [ 2.3 ]
+0006    | OP_DEFINE_GLOBAL 2 'b'
+             
+0008    3 OP_CONSTANT      5 '1444.56'
+             [ 1444.56 ]
+0010    | OP_DEFINE_GLOBAL 4 'a'
+             
+0012    5 OP_GET_GLOBAL    4 'a'
+             [ 1444.56 ]
+0014    | OP_GET_GLOBAL    2 'b'
+             [ 1444.56 ][ 2.3 ]
+0016    | OP_GREATER
+             [ true ]
+0017    | OP_JUMP_IF_FALSE 17 -> 26
+             [ true ]
+0020    | OP_POP
+             
+0021    | OP_GET_GLOBAL    4 'a'
+             [ 1444.56 ]
+0023    | OP_GET_GLOBAL    0 'c'
+             [ 1444.56 ][ 1 ]
+0025    | OP_GREATER
+             [ true ]
+0026    | OP_JUMP_IF_FALSE 26 -> 36
+             [ true ]
+0029    | OP_POP
+             
+0030    6 OP_CONSTANT      6 'a is largest'
+             [ a is largest ]
+0032    | OP_PRINT
+a is largest
+             
+0033    | OP_JUMP          33 -> 37
+             
+0037    7 OP_GET_GLOBAL    2 'b'
+             [ 2.3 ]
+0039    | OP_GET_GLOBAL    4 'a'
+             [ 2.3 ][ 1444.56 ]
+0041    | OP_GREATER
+             [ false ]
+0042    | OP_JUMP_IF_FALSE 42 -> 48
+             [ false ]
+0048    | OP_POP
+             
+0049    | OP_GET_GLOBAL    0 'c'
+             [ 1 ]
+0051    | OP_GET_GLOBAL    4 'a'
+             [ 1 ][ 1444.56 ]
+0053    | OP_GREATER
+             [ false ]
+0054    | OP_JUMP_IF_FALSE 54 -> 64
+             [ false ]
+0064    | OP_POP
+             
+0065   10 OP_CONSTANT      8 'a still is the largest'
+             [ a still is the largest ]
+0067    | OP_PRINT
+a still is the largest
+             
+0068   14 OP_GET_GLOBAL    2 'b'
+             [ 2.3 ]
+0070    | OP_GET_GLOBAL    4 'a'
+             [ 2.3 ][ 1444.56 ]
+0072    | OP_GREATER
+             [ false ]
+0073    | OP_JUMP_IF_FALSE 73 -> 79
+             [ false ]
+0079    | OP_POP
+             
+0080    | OP_GET_GLOBAL    0 'c'
+             [ 1 ]
+0082    | OP_GET_GLOBAL    4 'a'
+             [ 1 ][ 1444.56 ]
+0084    | OP_LESS
+             [ true ]
+0085    | OP_JUMP_IF_FALSE 85 -> 95
+             [ true ]
+0088    | OP_POP
+             
+0089   15 OP_CONSTANT      9 'c is def less'
+             [ c is def less ]
+0091    | OP_PRINT
+c is def less
+             
+0092    | OP_JUMP          92 -> 96
+             
+0096   16 OP_RETURN
