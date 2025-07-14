@@ -1,0 +1,15 @@
+var a = 3;
+
+if (a > 0) {
+  print "yep";
+} else {
+  print "nope";
+}
+
+if (a != 3) {
+  print "not 3";
+} else {
+  print "it is 3!";
+}
+
+if (a == 3) print "no else";

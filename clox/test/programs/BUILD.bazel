@@ -55,3 +55,17 @@ genrule(
     cmd = "$(location //clox/src:main) $(location inner_outer_local_test.lox)> \"$@\"",
     tools = ["//clox/src:main"],
 )
+
+diff_test(
+    name = "first_condition_diff",
+    file1 = ":first_condition",
+    file2 = "expected_first_condition.output",
+)
+
+genrule(
+    name = "first_condition",
+    srcs = ["first_condition.lox"],
+    outs = ["first_condition.output"],
+    cmd = "$(location //clox/src:main) $(location first_condition.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)
