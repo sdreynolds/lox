@@ -1,0 +1,10 @@
+var a = 0;
+
+while (a < 100) {
+  var k = 0;
+  while (k < 250) {
+    print "output";
+    k = k + 1;
+  }
+  a = a + 1;
+}

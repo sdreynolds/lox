@@ -84,3 +84,18 @@ genrule(
     cmd = "$(location //clox/src:main) $(location and_or_conditions.lox)> \"$@\"",
     tools = ["//clox/src:main"],
 )
+
+
+diff_test(
+    name = "while_loop_diff",
+    file1 = ":while_loop",
+    file2 = "expected_while_loop.output",
+)
+
+genrule(
+    name = "while_loop",
+    srcs = ["while_loop.lox"],
+    outs = ["while_loop.output"],
+    cmd = "$(location //clox/src:main) $(location while_loop.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)
