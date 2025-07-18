@@ -70,7 +70,6 @@ genrule(
     tools = ["//clox/src:main"],
 )
 
-
 diff_test(
     name = "and_or_conditions_diff",
     file1 = ":and_or_conditions",
@@ -85,7 +84,6 @@ genrule(
     tools = ["//clox/src:main"],
 )
 
-
 diff_test(
     name = "while_loop_diff",
     file1 = ":while_loop",
@@ -97,5 +95,19 @@ genrule(
     srcs = ["while_loop.lox"],
     outs = ["while_loop.output"],
     cmd = "$(location //clox/src:main) $(location while_loop.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)
+
+diff_test(
+    name = "for_loop_diff",
+    file1 = ":for_loop",
+    file2 = "expected_for_loop.output",
+)
+
+genrule(
+    name = "for_loop",
+    srcs = ["for_loop.lox"],
+    outs = ["for_loop.output"],
+    cmd = "$(location //clox/src:main) $(location for_loop.lox)> \"$@\"",
     tools = ["//clox/src:main"],
 )
