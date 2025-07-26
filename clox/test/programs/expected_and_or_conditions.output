@@ -1,4 +1,4 @@
-== code ==
+== <script> ==
 0000    1 OP_CONSTANT      1 '1'
 0002    | OP_DEFINE_GLOBAL 0 'c'
 0004    2 OP_CONSTANT      3 '2.3'
@@ -52,96 +52,96 @@
 0092    | OP_JUMP          92 -> 96
 0095    | OP_POP
 0096   16 OP_RETURN
-             
+             [ <script> ]
 0000    1 OP_CONSTANT      1 '1'
-             [ 1 ]
+             [ <script> ][ 1 ]
 0002    | OP_DEFINE_GLOBAL 0 'c'
-             
+             [ <script> ]
 0004    2 OP_CONSTANT      3 '2.3'
-             [ 2.3 ]
+             [ <script> ][ 2.3 ]
 0006    | OP_DEFINE_GLOBAL 2 'b'
-             
+             [ <script> ]
 0008    3 OP_CONSTANT      5 '1444.56'
-             [ 1444.56 ]
+             [ <script> ][ 1444.56 ]
 0010    | OP_DEFINE_GLOBAL 4 'a'
-             
+             [ <script> ]
 0012    5 OP_GET_GLOBAL    4 'a'
-             [ 1444.56 ]
+             [ <script> ][ 1444.56 ]
 0014    | OP_GET_GLOBAL    2 'b'
-             [ 1444.56 ][ 2.3 ]
+             [ <script> ][ 1444.56 ][ 2.3 ]
 0016    | OP_GREATER
-             [ true ]
+             [ <script> ][ true ]
 0017    | OP_JUMP_IF_FALSE 17 -> 26
-             [ true ]
+             [ <script> ][ true ]
 0020    | OP_POP
-             
+             [ <script> ]
 0021    | OP_GET_GLOBAL    4 'a'
-             [ 1444.56 ]
+             [ <script> ][ 1444.56 ]
 0023    | OP_GET_GLOBAL    0 'c'
-             [ 1444.56 ][ 1 ]
+             [ <script> ][ 1444.56 ][ 1 ]
 0025    | OP_GREATER
-             [ true ]
+             [ <script> ][ true ]
 0026    | OP_JUMP_IF_FALSE 26 -> 36
-             [ true ]
+             [ <script> ][ true ]
 0029    | OP_POP
-             
+             [ <script> ]
 0030    6 OP_CONSTANT      6 'a is largest'
-             [ a is largest ]
+             [ <script> ][ a is largest ]
 0032    | OP_PRINT
 a is largest
-             
+             [ <script> ]
 0033    | OP_JUMP          33 -> 37
-             
+             [ <script> ]
 0037    7 OP_GET_GLOBAL    2 'b'
-             [ 2.3 ]
+             [ <script> ][ 2.3 ]
 0039    | OP_GET_GLOBAL    4 'a'
-             [ 2.3 ][ 1444.56 ]
+             [ <script> ][ 2.3 ][ 1444.56 ]
 0041    | OP_GREATER
-             [ false ]
+             [ <script> ][ false ]
 0042    | OP_JUMP_IF_FALSE 42 -> 48
-             [ false ]
+             [ <script> ][ false ]
 0048    | OP_POP
-             
+             [ <script> ]
 0049    | OP_GET_GLOBAL    0 'c'
-             [ 1 ]
+             [ <script> ][ 1 ]
 0051    | OP_GET_GLOBAL    4 'a'
-             [ 1 ][ 1444.56 ]
+             [ <script> ][ 1 ][ 1444.56 ]
 0053    | OP_GREATER
-             [ false ]
+             [ <script> ][ false ]
 0054    | OP_JUMP_IF_FALSE 54 -> 64
-             [ false ]
+             [ <script> ][ false ]
 0064    | OP_POP
-             
+             [ <script> ]
 0065   10 OP_CONSTANT      8 'a still is the largest'
-             [ a still is the largest ]
+             [ <script> ][ a still is the largest ]
 0067    | OP_PRINT
 a still is the largest
-             
+             [ <script> ]
 0068   14 OP_GET_GLOBAL    2 'b'
-             [ 2.3 ]
+             [ <script> ][ 2.3 ]
 0070    | OP_GET_GLOBAL    4 'a'
-             [ 2.3 ][ 1444.56 ]
+             [ <script> ][ 2.3 ][ 1444.56 ]
 0072    | OP_GREATER
-             [ false ]
+             [ <script> ][ false ]
 0073    | OP_JUMP_IF_FALSE 73 -> 79
-             [ false ]
+             [ <script> ][ false ]
 0079    | OP_POP
-             
+             [ <script> ]
 0080    | OP_GET_GLOBAL    0 'c'
-             [ 1 ]
+             [ <script> ][ 1 ]
 0082    | OP_GET_GLOBAL    4 'a'
-             [ 1 ][ 1444.56 ]
+             [ <script> ][ 1 ][ 1444.56 ]
 0084    | OP_LESS
-             [ true ]
+             [ <script> ][ true ]
 0085    | OP_JUMP_IF_FALSE 85 -> 95
-             [ true ]
+             [ <script> ][ true ]
 0088    | OP_POP
-             
+             [ <script> ]
 0089   15 OP_CONSTANT      9 'c is def less'
-             [ c is def less ]
+             [ <script> ][ c is def less ]
 0091    | OP_PRINT
 c is def less
-             
+             [ <script> ]
 0092    | OP_JUMP          92 -> 96
-             
+             [ <script> ]
 0096   16 OP_RETURN

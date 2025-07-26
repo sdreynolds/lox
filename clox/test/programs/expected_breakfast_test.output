@@ -1,4 +1,4 @@
-== code ==
+== <script> ==
 0000    1 OP_CONSTANT      1 'beignets'
 0002    | OP_DEFINE_GLOBAL 0 'breakfast'
 0004    2 OP_CONSTANT      3 'cafe au lait'
@@ -13,32 +13,32 @@
 0019    4 OP_GET_GLOBAL    0 'breakfast'
 0021    | OP_PRINT
 0022    5 OP_RETURN
-             
+             [ <script> ]
 0000    1 OP_CONSTANT      1 'beignets'
-             [ beignets ]
+             [ <script> ][ beignets ]
 0002    | OP_DEFINE_GLOBAL 0 'breakfast'
-             
+             [ <script> ]
 0004    2 OP_CONSTANT      3 'cafe au lait'
-             [ cafe au lait ]
+             [ <script> ][ cafe au lait ]
 0006    | OP_DEFINE_GLOBAL 2 'beverage'
-             
+             [ <script> ]
 0008    3 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets ]
+             [ <script> ][ beignets ]
 0010    | OP_CONSTANT      4 ' with '
-             [ beignets ][  with  ]
+             [ <script> ][ beignets ][  with  ]
 0012    | OP_ADD
-             [ beignets with  ]
+             [ <script> ][ beignets with  ]
 0013    | OP_GET_GLOBAL    2 'beverage'
-             [ beignets with  ][ cafe au lait ]
+             [ <script> ][ beignets with  ][ cafe au lait ]
 0015    | OP_ADD
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0016    | OP_SET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0018    | OP_POP
-             
+             [ <script> ]
 0019    4 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0021    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0022    5 OP_RETURN

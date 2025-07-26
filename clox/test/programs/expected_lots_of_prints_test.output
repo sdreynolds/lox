@@ -1,4 +1,4 @@
-== code ==
+== <script> ==
 0000    1 OP_CONSTANT      1 'beignets'
 0002    | OP_DEFINE_GLOBAL 0 'breakfast'
 0004    2 OP_CONSTANT      3 'cafe au lait'
@@ -605,1512 +605,1512 @@
 0907  300 OP_GET_GLOBAL    0 'breakfast'
 0909    | OP_PRINT
 0910  301 OP_RETURN
-             
+             [ <script> ]
 0000    1 OP_CONSTANT      1 'beignets'
-             [ beignets ]
+             [ <script> ][ beignets ]
 0002    | OP_DEFINE_GLOBAL 0 'breakfast'
-             
+             [ <script> ]
 0004    2 OP_CONSTANT      3 'cafe au lait'
-             [ cafe au lait ]
+             [ <script> ][ cafe au lait ]
 0006    | OP_DEFINE_GLOBAL 2 'beverage'
-             
+             [ <script> ]
 0008    3 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets ]
+             [ <script> ][ beignets ]
 0010    | OP_CONSTANT      4 ' with '
-             [ beignets ][  with  ]
+             [ <script> ][ beignets ][  with  ]
 0012    | OP_ADD
-             [ beignets with  ]
+             [ <script> ][ beignets with  ]
 0013    | OP_GET_GLOBAL    2 'beverage'
-             [ beignets with  ][ cafe au lait ]
+             [ <script> ][ beignets with  ][ cafe au lait ]
 0015    | OP_ADD
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0016    | OP_SET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0018    | OP_POP
-             
+             [ <script> ]
 0019    4 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0021    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0022    5 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0024    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0025    6 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0027    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0028    7 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0030    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0031    8 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0033    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0034    9 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0036    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0037   10 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0039    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0040   11 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0042    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0043   12 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0045    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0046   13 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0048    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0049   14 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0051    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0052   15 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0054    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0055   16 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0057    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0058   17 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0060    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0061   18 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0063    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0064   19 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0066    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0067   20 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0069    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0070   21 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0072    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0073   22 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0075    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0076   23 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0078    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0079   24 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0081    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0082   25 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0084    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0085   26 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0087    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0088   27 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0090    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0091   28 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0093    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0094   29 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0096    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0097   30 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0099    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0100   31 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0102    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0103   32 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0105    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0106   33 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0108    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0109   34 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0111    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0112   35 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0114    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0115   36 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0117    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0118   37 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0120    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0121   38 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0123    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0124   39 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0126    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0127   40 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0129    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0130   41 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0132    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0133   42 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0135    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0136   43 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0138    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0139   44 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0141    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0142   45 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0144    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0145   46 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0147    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0148   47 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0150    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0151   48 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0153    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0154   49 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0156    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0157   50 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0159    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0160   51 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0162    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0163   52 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0165    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0166   53 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0168    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0169   54 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0171    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0172   55 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0174    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0175   56 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0177    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0178   57 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0180    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0181   58 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0183    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0184   59 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0186    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0187   60 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0189    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0190   61 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0192    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0193   62 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0195    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0196   63 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0198    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0199   64 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0201    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0202   65 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0204    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0205   66 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0207    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0208   67 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0210    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0211   68 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0213    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0214   69 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0216    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0217   70 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0219    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0220   71 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0222    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0223   72 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0225    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0226   73 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0228    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0229   74 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0231    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0232   75 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0234    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0235   76 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0237    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0238   77 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0240    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0241   78 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0243    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0244   79 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0246    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0247   80 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0249    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0250   81 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0252    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0253   82 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0255    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0256   83 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0258    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0259   84 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0261    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0262   85 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0264    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0265   86 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0267    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0268   87 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0270    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0271   88 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0273    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0274   89 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0276    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0277   90 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0279    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0280   91 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0282    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0283   92 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0285    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0286   93 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0288    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0289   94 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0291    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0292   95 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0294    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0295   96 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0297    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0298   97 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0300    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0301   98 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0303    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0304   99 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0306    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0307  100 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0309    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0310  101 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0312    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0313  102 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0315    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0316  103 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0318    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0319  104 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0321    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0322  105 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0324    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0325  106 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0327    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0328  107 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0330    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0331  108 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0333    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0334  109 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0336    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0337  110 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0339    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0340  111 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0342    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0343  112 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0345    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0346  113 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0348    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0349  114 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0351    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0352  115 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0354    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0355  116 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0357    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0358  117 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0360    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0361  118 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0363    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0364  119 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0366    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0367  120 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0369    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0370  121 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0372    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0373  122 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0375    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0376  123 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0378    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0379  124 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0381    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0382  125 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0384    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0385  126 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0387    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0388  127 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0390    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0391  128 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0393    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0394  129 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0396    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0397  130 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0399    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0400  131 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0402    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0403  132 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0405    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0406  133 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0408    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0409  134 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0411    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0412  135 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0414    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0415  136 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0417    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0418  137 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0420    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0421  138 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0423    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0424  139 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0426    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0427  140 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0429    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0430  141 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0432    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0433  142 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0435    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0436  143 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0438    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0439  144 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0441    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0442  145 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0444    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0445  146 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0447    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0448  147 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0450    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0451  148 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0453    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0454  149 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0456    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0457  150 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0459    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0460  151 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0462    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0463  152 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0465    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0466  153 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0468    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0469  154 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0471    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0472  155 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0474    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0475  156 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0477    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0478  157 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0480    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0481  158 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0483    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0484  159 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0486    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0487  160 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0489    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0490  161 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0492    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0493  162 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0495    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0496  163 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0498    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0499  164 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0501    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0502  165 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0504    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0505  166 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0507    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0508  167 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0510    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0511  168 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0513    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0514  169 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0516    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0517  170 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0519    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0520  171 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0522    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0523  172 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0525    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0526  173 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0528    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0529  174 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0531    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0532  175 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0534    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0535  176 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0537    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0538  177 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0540    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0541  178 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0543    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0544  179 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0546    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0547  180 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0549    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0550  181 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0552    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0553  182 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0555    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0556  183 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0558    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0559  184 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0561    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0562  185 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0564    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0565  186 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0567    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0568  187 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0570    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0571  188 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0573    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0574  189 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0576    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0577  190 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0579    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0580  191 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0582    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0583  192 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0585    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0586  193 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0588    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0589  194 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0591    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0592  195 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0594    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0595  196 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0597    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0598  197 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0600    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0601  198 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0603    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0604  199 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0606    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0607  200 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0609    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0610  201 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0612    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0613  202 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0615    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0616  203 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0618    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0619  204 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0621    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0622  205 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0624    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0625  206 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0627    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0628  207 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0630    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0631  208 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0633    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0634  209 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0636    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0637  210 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0639    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0640  211 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0642    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0643  212 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0645    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0646  213 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0648    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0649  214 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0651    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0652  215 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0654    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0655  216 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0657    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0658  217 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0660    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0661  218 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0663    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0664  219 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0666    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0667  220 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0669    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0670  221 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0672    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0673  222 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0675    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0676  223 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0678    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0679  224 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0681    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0682  225 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0684    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0685  226 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0687    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0688  227 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0690    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0691  228 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0693    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0694  229 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0696    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0697  230 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0699    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0700  231 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0702    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0703  232 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0705    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0706  233 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0708    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0709  234 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0711    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0712  235 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0714    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0715  236 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0717    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0718  237 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0720    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0721  238 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0723    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0724  239 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0726    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0727  240 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0729    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0730  241 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0732    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0733  242 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0735    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0736  243 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0738    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0739  244 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0741    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0742  245 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0744    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0745  246 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0747    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0748  247 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0750    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0751  248 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0753    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0754  249 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0756    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0757  250 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0759    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0760  251 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0762    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0763  252 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0765    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0766  253 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0768    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0769  254 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0771    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0772  255 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0774    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0775  256 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0777    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0778  257 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0780    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0781  258 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0783    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0784  259 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0786    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0787  260 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0789    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0790  261 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0792    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0793  262 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0795    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0796  263 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0798    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0799  264 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0801    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0802  265 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0804    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0805  266 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0807    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0808  267 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0810    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0811  268 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0813    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0814  269 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0816    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0817  270 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0819    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0820  271 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0822    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0823  272 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0825    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0826  273 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0828    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0829  274 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0831    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0832  275 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0834    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0835  276 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0837    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0838  277 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0840    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0841  278 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0843    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0844  279 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0846    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0847  280 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0849    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0850  281 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0852    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0853  282 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0855    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0856  283 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0858    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0859  284 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0861    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0862  285 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0864    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0865  286 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0867    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0868  287 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0870    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0871  288 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0873    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0874  289 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0876    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0877  290 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0879    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0880  291 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0882    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0883  292 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0885    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0886  293 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0888    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0889  294 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0891    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0892  295 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0894    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0895  296 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0897    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0898  297 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0900    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0901  298 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0903    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0904  299 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0906    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0907  300 OP_GET_GLOBAL    0 'breakfast'
-             [ beignets with cafe au lait ]
+             [ <script> ][ beignets with cafe au lait ]
 0909    | OP_PRINT
 beignets with cafe au lait
-             
+             [ <script> ]
 0910  301 OP_RETURN
