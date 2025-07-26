@@ -111,3 +111,46 @@ genrule(
     cmd = "$(location //clox/src:main) $(location for_loop.lox)> \"$@\"",
     tools = ["//clox/src:main"],
 )
+
+diff_test(
+    name = "procedure_diff",
+    file1 = ":procedure",
+    file2 = "expected_procedure.output",
+)
+
+genrule(
+    name = "procedure",
+    srcs = ["procedure.lox"],
+    outs = ["procedure.output"],
+    cmd = "$(location //clox/src:main) $(location procedure.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)
+
+diff_test(
+    name = "function_add_diff",
+    file1 = ":function_add",
+    file2 = "expected_function_add.output",
+)
+
+genrule(
+    name = "function_add",
+    srcs = ["function_add.lox"],
+    outs = ["function_add.output"],
+    cmd = "$(location //clox/src:main) $(location function_add.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)
+
+diff_test(
+    name = "fib_diff",
+    file1 = ":fib",
+    file2 = "expected_fib.output",
+)
+
+# With DEBUG_TRACE_EXECUTION set, this rule takes 31 seconds or so to build.
+genrule(
+    name = "fib",
+    srcs = ["fib.lox"],
+    outs = ["fib.output"],
+    cmd = "$(location //clox/src:main) $(location fib.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)

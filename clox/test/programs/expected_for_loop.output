@@ -75,7 +75,8 @@
 0130   19 OP_LOOP          130 -> 116
 0133    | OP_POP
 0134   20 OP_POP
-0135   21 OP_RETURN
+0135   21 OP_NIL
+0136    | OP_RETURN
              [ <script> ]
 0000    1 OP_CONSTANT      0 '0'
              [ <script> ][ 0 ]
@@ -4556,4 +4557,6 @@
              [ <script> ][ 5 ]
 0134   20 OP_POP
              [ <script> ]
-0135   21 OP_RETURN
+0135   21 OP_NIL
+             [ <script> ][ nil ]
+0136    | OP_RETURN

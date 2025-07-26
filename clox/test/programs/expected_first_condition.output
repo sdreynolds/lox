@@ -33,7 +33,8 @@
 0054    | OP_PRINT
 0055    | OP_JUMP          55 -> 59
 0058    | OP_POP
-0059   16 OP_RETURN
+0059   16 OP_NIL
+0060    | OP_RETURN
              [ <script> ]
 0000    1 OP_CONSTANT      1 '3'
              [ <script> ][ 3 ]
@@ -90,4 +91,6 @@ no else
              [ <script> ]
 0055    | OP_JUMP          55 -> 59
              [ <script> ]
-0059   16 OP_RETURN
+0059   16 OP_NIL
+             [ <script> ][ nil ]
+0060    | OP_RETURN

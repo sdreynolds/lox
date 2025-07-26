@@ -8,7 +8,8 @@
 0010    | OP_NEGATE
 0011    | OP_GREATER
 0012    | OP_PRINT
-0013    2 OP_RETURN
+0013    2 OP_NIL
+0014    | OP_RETURN
              [ <script> ]
 0000    1 OP_CONSTANT      0 '1'
              [ <script> ][ 1 ]
@@ -29,4 +30,6 @@
 0012    | OP_PRINT
 true
              [ <script> ]
-0013    2 OP_RETURN
+0013    2 OP_NIL
+             [ <script> ][ nil ]
+0014    | OP_RETURN

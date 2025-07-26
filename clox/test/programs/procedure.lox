@@ -1,0 +1,5 @@
+fun awesomeSauce() {
+  print "This is " + "great";
+}
+
+awesomeSauce();

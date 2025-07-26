@@ -51,7 +51,8 @@
 0091    | OP_PRINT
 0092    | OP_JUMP          92 -> 96
 0095    | OP_POP
-0096   16 OP_RETURN
+0096   16 OP_NIL
+0097    | OP_RETURN
              [ <script> ]
 0000    1 OP_CONSTANT      1 '1'
              [ <script> ][ 1 ]
@@ -144,4 +145,6 @@ c is def less
              [ <script> ]
 0092    | OP_JUMP          92 -> 96
              [ <script> ]
-0096   16 OP_RETURN
+0096   16 OP_NIL
+             [ <script> ][ nil ]
+0097    | OP_RETURN

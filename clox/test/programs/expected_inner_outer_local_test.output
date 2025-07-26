@@ -19,7 +19,8 @@
 0027    | OP_ADD
 0028    | OP_PRINT
 0029   11 OP_POP
-0030   12 OP_RETURN
+0030   12 OP_NIL
+0031    | OP_RETURN
              [ <script> ]
 0000    2 OP_CONSTANT      0 'outer'
              [ <script> ][ outer ]
@@ -64,4 +65,6 @@ Outer: outer
              [ <script> ][ outer ]
 0029   11 OP_POP
              [ <script> ]
-0030   12 OP_RETURN
+0030   12 OP_NIL
+             [ <script> ][ nil ]
+0031    | OP_RETURN
