@@ -21,50 +21,6 @@
 0029   11 OP_POP
 0030   12 OP_NIL
 0031    | OP_RETURN
-             [ <script> ]
-0000    2 OP_CONSTANT      0 'outer'
-             [ <script> ][ outer ]
-0002    4 OP_CONSTANT      1 'inner'
-             [ <script> ][ outer ][ inner ]
-0004    5 OP_CONSTANT      2 'another variable'
-             [ <script> ][ outer ][ inner ][ another variable ]
-0006    6 OP_CONSTANT      3 'Shadow: '
-             [ <script> ][ outer ][ inner ][ another variable ][ Shadow:  ]
-0008    | OP_GET_LOCAL        2
-             [ <script> ][ outer ][ inner ][ another variable ][ Shadow:  ][ inner ]
-0010    | OP_ADD
-             [ <script> ][ outer ][ inner ][ another variable ][ Shadow: inner ]
-0011    | OP_PRINT
 Shadow: inner
-             [ <script> ][ outer ][ inner ][ another variable ]
-0012    7 OP_CONSTANT      4 'also a variable'
-             [ <script> ][ outer ][ inner ][ another variable ][ also a variable ]
-0014    8 OP_CONSTANT      5 'another t: '
-             [ <script> ][ outer ][ inner ][ another variable ][ also a variable ][ another t:  ]
-0016    | OP_GET_LOCAL        3
-             [ <script> ][ outer ][ inner ][ another variable ][ also a variable ][ another t:  ][ another variable ]
-0018    | OP_ADD
-             [ <script> ][ outer ][ inner ][ another variable ][ also a variable ][ another t: another variable ]
-0019    | OP_PRINT
 another t: another variable
-             [ <script> ][ outer ][ inner ][ another variable ][ also a variable ]
-0020    9 OP_POP
-             [ <script> ][ outer ][ inner ][ another variable ]
-0021    | OP_POP
-             [ <script> ][ outer ][ inner ]
-0022    | OP_POP
-             [ <script> ][ outer ]
-0023   10 OP_CONSTANT      6 'Outer: '
-             [ <script> ][ outer ][ Outer:  ]
-0025    | OP_GET_LOCAL        1
-             [ <script> ][ outer ][ Outer:  ][ outer ]
-0027    | OP_ADD
-             [ <script> ][ outer ][ Outer: outer ]
-0028    | OP_PRINT
 Outer: outer
-             [ <script> ][ outer ]
-0029   11 OP_POP
-             [ <script> ]
-0030   12 OP_NIL
-             [ <script> ][ nil ]
-0031    | OP_RETURN
