@@ -185,3 +185,17 @@ genrule(
     cmd = "$(location //clox/src:main) $(location escaping_local.lox)> \"$@\"",
     tools = ["//clox/src:main"],
 )
+
+diff_test(
+    name = "closed_upvalues_diff",
+    file1 = ":closed_upvalues",
+    file2 = "expected_closed_upvalues.output",
+)
+
+genrule(
+    name = "closed_upvalues",
+    srcs = ["closed_upvalues.lox"],
+    outs = ["closed_upvalues.output"],
+    cmd = "$(location //clox/src:main) $(location closed_upvalues.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)
