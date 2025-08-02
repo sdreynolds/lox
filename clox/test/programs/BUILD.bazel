@@ -157,3 +157,31 @@ genrule(
     cmd = "$(location //clox/src:main) $(location fib.lox)> \"$@\"",
     tools = ["//clox/src:main"],
 )
+
+diff_test(
+    name = "closure_start_diff",
+    file1 = ":closure_start",
+    file2 = "expected_closure_start.output",
+)
+
+genrule(
+    name = "closure_start",
+    srcs = ["closure_start.lox"],
+    outs = ["closure_start.output"],
+    cmd = "$(location //clox/src:main) $(location closure_start.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)
+
+diff_test(
+    name = "escaping_local_diff",
+    file1 = ":escaping_local",
+    file2 = "expected_escaping_local.output",
+)
+
+genrule(
+    name = "escaping_local",
+    srcs = ["escaping_local.lox"],
+    outs = ["escaping_local.output"],
+    cmd = "$(location //clox/src:main) $(location escaping_local.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)
