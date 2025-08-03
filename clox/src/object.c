@@ -58,7 +58,11 @@ static ObjString* allocateString(char* chars, int length, uint32_t hash) {
     string->length = length;
     string->hash = hash;
     string->chars = chars;
+
+    // push ont stack to protect against GC collecting this string before it is placed in the table.
+    push(OBJ_VAL(string));
     tableSet(&vm.strings, string, NIL_VAL);
+    pop();
     return string;
 }
 

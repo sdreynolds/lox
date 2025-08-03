@@ -7,8 +7,8 @@ typedef struct Obj Obj;
 typedef struct ObjString ObjString;
 
 typedef enum {
-    VAL_BOOL,
     VAL_NIL,
+    VAL_BOOL,
     VAL_NUMBER,
     VAL_OBJ,
 } ValueType;

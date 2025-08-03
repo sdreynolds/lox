@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "chunk.h"
 #include "memory.h"
+#include "vm.h" // used for pushing values onto stack before GC.
 #include <stdio.h>
 
 void initChunk(Chunk* chunk) {
@@ -69,6 +70,9 @@ void freeChunk(Chunk* chunk) {
 }
 
 int addConstant(Chunk* chunk, Value value) {
+    // Push onto stack in case the writValueArray triggers a GC.
+    push(value);
     writeValueArray(&chunk->constants, value);
+    pop();
     return chunk->constants.count - 1;
 }
