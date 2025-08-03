@@ -817,3 +817,9 @@ ObjFunction* compile(const char* source) {
 
     return parser.hadError ? NULL: function;
 }
+
+void markCompilerRoots() {
+    for (Compiler* compiler = current; compiler != NULL; compiler = compiler->enclosing) {
+        markObject((Obj*)compiler->function);
+    }
+}
