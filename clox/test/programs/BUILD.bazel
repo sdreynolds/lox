@@ -199,3 +199,17 @@ genrule(
     cmd = "$(location //clox/src:main) $(location closed_upvalues.lox)> \"$@\"",
     tools = ["//clox/src:main"],
 )
+
+diff_test(
+    name = "instance_math_diff",
+    file1 = ":instance_math",
+    file2 = "expected_instance_math.output",
+)
+
+genrule(
+    name = "instance_math",
+    srcs = ["instance_math.lox"],
+    outs = ["instance_math.output"],
+    cmd = "$(location //clox/src:main) $(location instance_math.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)

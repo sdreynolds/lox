@@ -111,6 +111,11 @@ static bool call(ObjClosure* closure, int argCount) {
 static bool callValue(Value callee, int argCount) {
     if (IS_OBJ(callee)) {
         switch (OBJ_TYPE(callee)) {
+        case OBJ_CLASS: {
+            ObjClass* klass = AS_CLASS(callee);
+            vm.stackTop[-argCount - 1] = OBJ_VAL(newInstance(klass));
+            return true;
+        }
         case OBJ_CLOSURE: {
             return call(AS_CLOSURE(callee), argCount);
         }
@@ -127,7 +132,7 @@ static bool callValue(Value callee, int argCount) {
         }
         }
     }
-    runtimeError("Can only call functions and classes. Not %d", callee.type);
+    runtimeError("Can only call functions and classes. Not %d -> %d", callee.type);
     return false;
 }
 
@@ -288,6 +293,39 @@ static InterpretResult run() {
             *frame->closure->upvalues[slot]->location = peek(0);
             break;
         }
+        case OP_GET_PROPERTY: {
+            if (!IS_INSTANCE(peek(0))) {
+                runtimeError("Only instances have properties.");
+                return INTERPRET_RUNTIME_ERROR;
+            } else {
+
+                ObjInstance* instance = AS_INSTANCE(peek(0));
+                ObjString* name = READ_STRING();
+
+                Value value;
+                if (tableGet(&instance->fields, name, &value)) {
+                    pop(); // Instance.
+                    push(value);
+                    break;
+                } else {
+                    runtimeError("Undefined property '%s'.", name->chars);
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+            }
+        }
+       case OP_SET_PROPERTY: {
+           if (!IS_INSTANCE(peek(1))) {
+               runtimeError("Only instances have fields.");
+               return INTERPRET_RUNTIME_ERROR;
+           }
+           // peek(1) as the set value is peek(0)
+           ObjInstance* instance = AS_INSTANCE(peek(1));
+           tableSet(&instance->fields, READ_STRING(), peek(0));
+           Value value = pop();
+           pop(); // pop instance
+           push(value);
+           break;
+        }
         case OP_EQUAL: {
             Value b = pop();
             Value a = pop();
@@ -400,8 +438,14 @@ static InterpretResult run() {
                 push(result);
                 frame = &vm.frames[vm.frameCount - 1];
             }
-
+            break;
         }
+        case OP_CLASS: {
+            ObjClass* classDec = newClass(READ_STRING());
+            push(OBJ_VAL(classDec));
+            break;
+        }
+
         }
     }
 
