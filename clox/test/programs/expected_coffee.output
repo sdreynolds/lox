@@ -1,0 +1,38 @@
+== init ==
+0000    3 OP_GET_LOCAL        0
+0002    | OP_GET_LOCAL        1
+0004    | OP_SET_PROPERTY  0 'coffee'
+0006    | OP_POP
+0007    4 OP_GET_LOCAL        0
+0009    | OP_RETURN
+== brew ==
+0000    7 OP_CONSTANT      0 'Enjoy your coup of '
+0002    | OP_GET_LOCAL        0
+0004    | OP_GET_PROPERTY  1 'coffee'
+0006    | OP_ADD
+0007    | OP_PRINT
+0008    9 OP_GET_LOCAL        0
+0010    | OP_NIL
+0011    | OP_SET_PROPERTY  2 'coffee'
+0013    | OP_POP
+0014   10 OP_NIL
+0015    | OP_RETURN
+== <script> ==
+0000    1 OP_CLASS         0 'CoffeeMaker'
+0002    | OP_DEFINE_GLOBAL 0 'CoffeeMaker'
+0004    | OP_GET_GLOBAL    1 'CoffeeMaker'
+0006    4 OP_CLOSURE          3 <fn init>
+0008    | OP_METHOD        2 'init'
+0010   10 OP_CLOSURE          5 <fn brew>
+0012    | OP_METHOD        4 'brew'
+0014   11 OP_POP
+0015   13 OP_GET_GLOBAL    7 'CoffeeMaker'
+0017    | OP_CONSTANT      8 'coffee and chicory'
+0019    | OP_CALL             1
+0021    | OP_DEFINE_GLOBAL 6 'maker'
+0023   14 OP_GET_GLOBAL    9 'maker'
+0025    | OP_INVOKE-16s (0 args)   10 'brew'
+'0028    | OP_POP
+0029   15 OP_NIL
+0030    | OP_RETURN
+Enjoy your coup of coffee and chicory

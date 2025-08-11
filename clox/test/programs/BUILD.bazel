@@ -213,3 +213,45 @@ genrule(
     cmd = "$(location //clox/src:main) $(location instance_math.lox)> \"$@\"",
     tools = ["//clox/src:main"],
 )
+
+diff_test(
+    name = "jane_name_diff",
+    file1 = ":jane_name",
+    file2 = "expected_jane_name.output",
+)
+
+genrule(
+    name = "jane_name",
+    srcs = ["jane_name.lox"],
+    outs = ["jane_name.output"],
+    cmd = "$(location //clox/src:main) $(location jane_name.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)
+
+diff_test(
+    name = "scone_diff",
+    file1 = ":scone",
+    file2 = "expected_scone.output",
+)
+
+genrule(
+    name = "scone",
+    srcs = ["scone.lox"],
+    outs = ["scone.output"],
+    cmd = "$(location //clox/src:main) $(location scone.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)
+
+diff_test(
+    name = "coffee_diff",
+    file1 = ":coffee",
+    file2 = "expected_coffee.output",
+)
+
+genrule(
+    name = "coffee",
+    srcs = ["coffee.lox"],
+    outs = ["coffee.output"],
+    cmd = "$(location //clox/src:main) $(location coffee.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)

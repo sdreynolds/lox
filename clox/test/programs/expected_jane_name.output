@@ -1,0 +1,29 @@
+== sayName ==
+0000    3 OP_GET_LOCAL        0
+0002    | OP_GET_PROPERTY  0 'name'
+0004    | OP_PRINT
+0005    4 OP_NIL
+0006    | OP_RETURN
+== <script> ==
+0000    1 OP_CLASS         0 'Person'
+0002    | OP_DEFINE_GLOBAL 0 'Person'
+0004    | OP_GET_GLOBAL    1 'Person'
+0006    4 OP_CLOSURE          3 <fn sayName>
+0008    | OP_METHOD        2 'sayName'
+0010    5 OP_POP
+0011    7 OP_GET_GLOBAL    5 'Person'
+0013    | OP_CALL             0
+0015    | OP_DEFINE_GLOBAL 4 'jane'
+0017    8 OP_GET_GLOBAL    6 'jane'
+0019    | OP_CONSTANT      8 'Jane'
+0021    | OP_SET_PROPERTY  7 'name'
+0023    | OP_POP
+0024    9 OP_GET_GLOBAL    10 'jane'
+0026    | OP_GET_PROPERTY  11 'sayName'
+0028    | OP_DEFINE_GLOBAL 9 'method'
+0030   10 OP_GET_GLOBAL    12 'method'
+0032    | OP_CALL             0
+0034    | OP_POP
+0035   11 OP_NIL
+0036    | OP_RETURN
+Jane
