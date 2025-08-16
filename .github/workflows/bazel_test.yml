@@ -3,7 +3,10 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
   Bazel-Test:
-    runs-on: ubuntu-latest
+    # because of libtinfo5 is required and not present on 24.
+    # readmore on llvm toolchain script
+    # https://github.com/bazel-contrib/toolchains_llvm/blob/d103be73bce9a804ebc4e57637fbaf9d6f23e682/tests/scripts/ubuntu_install_libtinfo.sh#L1-L9
+    runs-on: ubuntu-22.04
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -12,8 +15,11 @@ jobs:
         uses: actions/checkout@v5
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      # - name: Install Prereqs
-      #   run: sudo apt --yes install libtinfo5
+      - name: Install Prereqs
+        run: |
+          export DEBIAN_FRONTEND=noninteractive
+          sudo apt-get -qq update
+          sudo apt-get -qq -y install apt-utils curl libtinfo5 libxml2 pkg-config zlib1g-dev >/dev/null
       - name: Setup Bazel
         uses: bazel-contrib/setup-bazel@0.15.0
         with:
