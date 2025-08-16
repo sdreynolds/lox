@@ -392,6 +392,16 @@ static InterpretResult run() {
            push(value);
            break;
         }
+        case OP_GET_SUPER: {
+            ObjString* name = READ_STRING();
+            ObjClass* superclass = AS_CLASS(pop());
+
+            if (bindMethod(superclass, name)) {
+                break;
+            } else {
+                return INTERPRET_RUNTIME_ERROR;
+            }
+        }
         case OP_EQUAL: {
             Value b = pop();
             Value a = pop();
@@ -519,6 +529,23 @@ static InterpretResult run() {
         case OP_CLASS: {
             ObjClass* classDec = newClass(READ_STRING());
             push(OBJ_VAL(classDec));
+            break;
+        }
+        case OP_INHERIT: {
+            Value superclass = peek(1);
+
+            if (!IS_CLASS(superclass)) {
+                runtimeError("Superclass must be a class");
+                return INTERPRET_RUNTIME_ERROR;
+            }
+
+            ObjClass* subclass = AS_CLASS(peek(0));
+            // Adds the superclass methods *before* any of the subclass methods are added.
+            // This means overridden methods in the subclass are added *after* and replace
+            // the superclass implementation.
+            tableAddAll(&AS_CLASS(superclass)->methods, &subclass->methods);
+            // Remove subclass
+            pop();
             break;
         }
         case OP_METHOD: {

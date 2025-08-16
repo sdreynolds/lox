@@ -1,0 +1,13 @@
+class A {
+  method() { print "A"; } 
+}
+
+class B < A {
+  method() {
+     var closure = super.method;
+     print "B";
+     closure();
+  }
+}
+
+B().method();

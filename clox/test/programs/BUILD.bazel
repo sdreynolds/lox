@@ -255,3 +255,17 @@ genrule(
     cmd = "$(location //clox/src:main) $(location coffee.lox)> \"$@\"",
     tools = ["//clox/src:main"],
 )
+
+diff_test(
+    name = "super_closure_diff",
+    file1 = ":super_closure",
+    file2 = "expected_super_closure.output",
+)
+
+genrule(
+    name = "super_closure",
+    srcs = ["super_closure.lox"],
+    outs = ["super_closure.output"],
+    cmd = "$(location //clox/src:main) $(location super_closure.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)
