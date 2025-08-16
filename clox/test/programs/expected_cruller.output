@@ -1,0 +1,52 @@
+== cook ==
+0000    3 OP_CONSTANT      0 'Dunk in the fryer.'
+0002    | OP_PRINT
+0003    4 OP_GET_LOCAL        0
+0005    | OP_CONSTANT      2 'sprinkles'
+0007    | OP_INVOKE-16s (1 args)    1 'finish'
+'0010    | OP_POP
+0011    5 OP_NIL
+0012    | OP_RETURN
+== finish ==
+0000    7 OP_CONSTANT      0 'Finish with '
+0002    | OP_GET_LOCAL        1
+0004    | OP_ADD
+0005    | OP_PRINT
+0006    | OP_NIL
+0007    | OP_RETURN
+== finish ==
+0000   13 OP_GET_LOCAL        0
+0002    | OP_CONSTANT      1 'icing'
+0004    | OP_GET_UPVALUE      0
+0006    | OP_SUPER_INVOKE-16s (1 args)    0 'finish'
+'0009    | OP_POP
+0010   14 OP_NIL
+0011    | OP_RETURN
+== <script> ==
+0000    1 OP_CLASS         0 'Doughnut'
+0002    | OP_DEFINE_GLOBAL 0 'Doughnut'
+0004    | OP_GET_GLOBAL    1 'Doughnut'
+0006    5 OP_CLOSURE          3 <fn cook>
+0008    | OP_METHOD        2 'cook'
+0010    7 OP_CLOSURE          5 <fn finish>
+0012    | OP_METHOD        4 'finish'
+0014    8 OP_POP
+0015   10 OP_CLASS         6 'Cruller'
+0017    | OP_DEFINE_GLOBAL 6 'Cruller'
+0019    | OP_GET_GLOBAL    7 'Doughnut'
+0021    | OP_GET_GLOBAL    8 'Cruller'
+0023    | OP_INHERIT
+0024    | OP_GET_GLOBAL    9 'Cruller'
+0026   14 OP_CLOSURE         11 <fn finish>
+0028      |                     local 1
+0030    | OP_METHOD        10 'finish'
+0032   15 OP_POP
+0033    | OP_CLOSE_UPVALUE
+0034   17 OP_GET_GLOBAL    12 'Cruller'
+0036    | OP_CALL             0
+0038    | OP_INVOKE-16s (0 args)   13 'cook'
+'0041    | OP_POP
+0042   18 OP_NIL
+0043    | OP_RETURN
+Dunk in the fryer.
+Finish with icing

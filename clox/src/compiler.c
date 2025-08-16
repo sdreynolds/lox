@@ -549,8 +549,16 @@ static void super_(bool canAssign) {
         uint8_t name = identifierConstant(&parser.previous);
 
         namedVariable(synththeticToken("this"), false);
-        namedVariable(synththeticToken("super"), false);
-        emitBytes(OP_GET_SUPER, name);
+        // optimization for an immediate call
+        if (match(TOKEN_LEFT_PAREN)) {
+            uint8_t argCount = argumentList();
+            namedVariable(synththeticToken("super"), false);
+            emitBytes(OP_SUPER_INVOKE, name);
+            emitByte(argCount);
+        } else {
+            namedVariable(synththeticToken("super"), false);
+            emitBytes(OP_GET_SUPER, name);
+        }
     }
 }
 

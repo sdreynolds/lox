@@ -269,3 +269,17 @@ genrule(
     cmd = "$(location //clox/src:main) $(location super_closure.lox)> \"$@\"",
     tools = ["//clox/src:main"],
 )
+
+diff_test(
+    name = "cruller_diff",
+    file1 = ":cruller",
+    file2 = "expected_cruller.output",
+)
+
+genrule(
+    name = "cruller",
+    srcs = ["cruller.lox"],
+    outs = ["cruller.output"],
+    cmd = "$(location //clox/src:main) $(location cruller.lox)> \"$@\"",
+    tools = ["//clox/src:main"],
+)
